@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mishra-naveen-dev/ebook-store/static/css/main.67c05b7d.css",
-    "main.js": "/mishra-naveen-dev/ebook-store/static/js/main.764184e6.js",
-    "static/js/453.bf6f5190.chunk.js": "/mishra-naveen-dev/ebook-store/static/js/453.bf6f5190.chunk.js",
-    "index.html": "/mishra-naveen-dev/ebook-store/index.html",
-    "main.67c05b7d.css.map": "/mishra-naveen-dev/ebook-store/static/css/main.67c05b7d.css.map",
-    "main.764184e6.js.map": "/mishra-naveen-dev/ebook-store/static/js/main.764184e6.js.map",
-    "453.bf6f5190.chunk.js.map": "/mishra-naveen-dev/ebook-store/static/js/453.bf6f5190.chunk.js.map"
+    "main.css": "/ebook-store/static/css/main.67c05b7d.css",
+    "main.js": "/ebook-store/static/js/main.ac7c0a23.js",
+    "static/js/453.bf6f5190.chunk.js": "/ebook-store/static/js/453.bf6f5190.chunk.js",
+    "index.html": "/ebook-store/index.html",
+    "main.67c05b7d.css.map": "/ebook-store/static/css/main.67c05b7d.css.map",
+    "main.ac7c0a23.js.map": "/ebook-store/static/js/main.ac7c0a23.js.map",
+    "453.bf6f5190.chunk.js.map": "/ebook-store/static/js/453.bf6f5190.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67c05b7d.css",
-    "static/js/main.764184e6.js"
+    "static/js/main.ac7c0a23.js"
   ]
 }
