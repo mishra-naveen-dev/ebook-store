@@ -7,7 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import HomeIcon from '@mui/icons-material/Home';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { useAuth } from '../../Context/AuthContext';
 // import { useToast } from "../../Context/ToastContext";
 import sunIcon from '../../assets/sun.png'; // Adjust the path as necessary
@@ -42,7 +42,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
     <StyledAppBar position="sticky">
       <Toolbar>
         <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, fontSize: '1.5rem' }}>
-          Book4u
+          BookServices
         </Typography>
         <IconButton onClick={toggleDarkMode} style={{ marginRight: '10px' }}>
           <img src={darkMode ? sunIcon : moonIcon} alt="Toggle Dark Mode" style={{ width: '20px', height: '20px' }} />
