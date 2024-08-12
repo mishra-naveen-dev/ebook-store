@@ -41,10 +41,6 @@ function Footer() {
                 </Typography>
             </Container>
 
-            <div className="FooterBtn">
-
-            </div>
-
         </footer >
     );
 }
