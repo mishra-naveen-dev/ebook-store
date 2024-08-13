@@ -26,6 +26,7 @@ const StyledButton = styled(Button)({
 });
 
 function Navbar({ darkMode, toggleDarkMode }) {
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [openMenu, setOpenMenu] = useState(false);
