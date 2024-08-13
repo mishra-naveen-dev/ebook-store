@@ -1,8 +1,10 @@
 .Footer {
   padding: 1rem;
-  position: absolute;
-  width: 97.5vw;
-  bottom: 0%;
+  width: 100%;
+  position: absolute; 
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,16 +13,23 @@
   background-color: #3f51b5;
 }
 
+.Text{
+  color:white;
+  font-weight: bold !important;
+  margin-bottom: 5px !important;
+}
 .FooterBtn{
-    padding: 5px 10px ;
-    border-radius: 25%;
-   color:rgba(0, 0, 0, 0.54) ;
-   text-transform: capitalize !important;
-   transition: .5s ease;
+    padding: 0px 5px !important;
+    margin-left: 5px !important;
+    justify-content: flex-start !important;
+    color: white !important;
+    text-transform: capitalize !important;
+    transition: .5s ease ;
 }
 
 
 .FooterBtn:hover{
     text-decoration: underline !important;
-    font-weight: bold;
+    color:black !important;
+   
 }
