@@ -31,6 +31,8 @@ const Home = () => {
 
 
     return (
+
+
         <>
             <Preloader />
             <div className="bg-gray-100 dark:bg-[rgb(51,51,51)]">
@@ -141,6 +143,7 @@ const Home = () => {
                 )}
             </div>
         </>
+
     );
 };
 

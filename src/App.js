@@ -1,6 +1,9 @@
 import "./App.css";
+
+
 import './Animations.css'
 import { Navbar, Footer } from './components/index.js';
+
 import React from 'react';
 // import Home from './pages/Home.jsx';
 import Home from './pages/Home.jsx'
