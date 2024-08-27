@@ -1,47 +1,58 @@
-import React from 'react';
-import { Typography, Container, Grid } from '@material-ui/core';
-import { Help, About, Socals } from './FooterContent'
-import './Footer.css'
+import React from "react";
+import { Typography, Container, Grid } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core/style";
+import { Help, About, Socials } from "./FooterContent";
+import "./Footer.css";
+
 
 function Footer() {
-    return (
-        <footer className='Footer'>
-            <Grid container spacing={{ sm: 2, md: 3 }} justifyContent="space-around">
-                <Grid xs="auto">
 
-                    <Typography variant='body2' className='Text' >
-                        {'ABOUT'}
+    return (<>
+        <footer className='Footer' >
+
+            <Grid container justifyContent="space-evenly" spacing={4}>
+
+                <Grid item textAlign="center"   >
+                    <Typography variant="body2" className="Text" >
+                        {"ABOUT"}
                     </Typography>
 
                     <About />
                 </Grid>
-                <Grid xs="auto">
 
-                    <Typography variant='body2' className='Text'>
-                        {'HELP'}
+                <Grid item textAlign="center" sx={{ mr: 4 }} className='MarginRight'>
+                    <Typography variant="body2" className="Text">
+                        {"HELP"}
                     </Typography>
+
                     <Help />
                 </Grid>
 
-                <Grid xs={6}  >
-
-                    <Typography variant='body2' className='Text' sx={{ textAlign: 'center' }} >
-                        {'SOCIALS'}
+                <Grid item textAlign="center" sx={{ mr: 4 }} className='MarginRight' >
+                    <Typography
+                        variant="body2"
+                        className="Text Social"
+                    >
+                        {"SOCIALS"}
                     </Typography>
 
-                    <Socals />
-                </Grid >
-            </Grid >
+                    <Socials />
 
-            <Container  >
-                <Typography variant="body2" className='Text' align="center">
-                    {'Copyright © '}
+                </Grid>
+            </Grid>
+
+
+
+
+            <Container sx={{ mt: 3 }} className='MarginTop' >
+                <Typography variant="body2" className="Text" align="center" >
+                    {"Copyright © "}
                     Bookstore {new Date().getFullYear()}
-                    {'.'}
+                    {" Build By Lavish ANd Naveen ."}
                 </Typography>
             </Container>
-
         </footer >
+    </>
     );
 }
 

@@ -36,32 +36,24 @@ export const About = () => {
     )
 }
 
-export const Socals = () => {
+export const Socials = () => {
     return (
         <>
             <Grid container direction="row" justifyContent="flex-start" >
-                <IconButton aria-label="about" component={Link} to='/#' sx={{
-                    m: '10px'
-                }} >
-                    < GitHubIcon sx={{ color: 'white' }} />
+                <IconButton aria-label="about" component={Link} to='/#' >
+                    < GitHubIcon className='IconButton' sx={{ color: 'white' }} />
                 </IconButton>
 
-                <IconButton aria-label="about" component={Link} to='/#' sx={{
-                    m: '10px'
-                }} >
-                    < XIcon sx={{ color: 'white' }} />
+                <IconButton aria-label="about" component={Link} to='/#' >
+                    < XIcon className='IconButton' sx={{ color: 'white' }} />
                 </IconButton>
 
-                <IconButton aria-label="about" component={Link} to='/#' sx={{
-                    m: '10px'
-                }} >
-                    < InstagramIcon sx={{ color: 'white' }} />
+                <IconButton className='IconButton' aria-label="about" component={Link} to='/#' >
+                    < InstagramIcon className='IconButton' sx={{ color: 'white' }} />
                 </IconButton>
 
-                <IconButton aria-label="about" component={Link} to='/#' sx={{
-                    m: '10px'
-                }}>
-                    < LinkedInIcon sx={{ color: 'white' }} />
+                <IconButton aria-label="about" component={Link} to='/#'>
+                    < LinkedInIcon className='IconButton' sx={{ color: 'white' }} />
                 </IconButton>
             </Grid >
         </>

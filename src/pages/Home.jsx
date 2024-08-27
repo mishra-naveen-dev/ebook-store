@@ -16,7 +16,7 @@ function HomePage() {
     }, []);
 
     return (
-        <Container>
+        <Container sx={{ height: '100vh' }}>
             <Typography variant="h2" gutterBottom>
                 Welcome to the Bookstore
             </Typography>
