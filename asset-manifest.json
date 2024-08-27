@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/ebook-store/static/css/main.26203e05.css",
-    "main.js": "/ebook-store/static/js/main.916fb953.js",
+    "main.css": "/ebook-store/static/css/main.a3d478ad.css",
+    "main.js": "/ebook-store/static/js/main.5fdfe364.js",
     "static/js/453.258b012d.chunk.js": "/ebook-store/static/js/453.258b012d.chunk.js",
+    "static/media/B1Child.jpeg": "/ebook-store/static/media/B1Child.686ecb2cbec407500edf.jpeg",
+    "static/media/Logo.png": "/ebook-store/static/media/Logo.b45f8751ec5d1abee217.png",
     "static/media/moon.png": "/ebook-store/static/media/moon.3f18d7a0d1a36a0f987f.png",
     "index.html": "/ebook-store/index.html",
-    "main.26203e05.css.map": "/ebook-store/static/css/main.26203e05.css.map",
-    "main.916fb953.js.map": "/ebook-store/static/js/main.916fb953.js.map",
+    "main.a3d478ad.css.map": "/ebook-store/static/css/main.a3d478ad.css.map",
+    "main.5fdfe364.js.map": "/ebook-store/static/js/main.5fdfe364.js.map",
     "453.258b012d.chunk.js.map": "/ebook-store/static/js/453.258b012d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.26203e05.css",
-    "static/js/main.916fb953.js"
+    "static/css/main.a3d478ad.css",
+    "static/js/main.5fdfe364.js"
   ]
 }
