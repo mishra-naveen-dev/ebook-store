@@ -1,37 +1,48 @@
 import React from "react";
 import { Typography, Container, Grid } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/style";
-import { Help, About, Socials } from "./FooterContent";
+import { Help, About, Socials, Legal } from "./FooterContent";
 import "./Footer.css";
+import { FooterStyles as Styles } from './Styles.js';
 
 
+const useStyles = Styles;
 function Footer() {
+    const classes = useStyles();
 
     return (<>
-        <footer className='Footer' >
+        <footer className={classes.Footer} >
 
             <Grid container justifyContent="space-evenly" spacing={4}>
 
                 <Grid item textAlign="center"   >
-                    <Typography variant="body2" className="Text" >
+                    <Typography variant="body2" className={classes.Text} >
                         {"ABOUT"}
                     </Typography>
 
                     <About />
                 </Grid>
 
-                <Grid item textAlign="center" sx={{ mr: 4 }} className='MarginRight'>
-                    <Typography variant="body2" className="Text">
+                <Grid item textAlign="center" sx={{ mr: 4 }} >
+                    <Typography variant="body2" className={classes.Text}>
                         {"HELP"}
                     </Typography>
 
                     <Help />
                 </Grid>
 
-                <Grid item textAlign="center" sx={{ mr: 4 }} className='MarginRight' >
+                <Grid item textAlign="center" sx={{ mr: 4 }} className={classes.MarginRight}>
+                    <Typography variant="body2" className={classes.Text}>
+                        {"Legal"}
+                    </Typography>
+
+                    <Legal />
+                </Grid>
+
+                <Grid item textAlign="center" sx={{ mr: 4 }} className={classes.MarginRight} >
                     <Typography
                         variant="body2"
-                        className="Text Social"
+                        className={classes.Text}
+                        sx={{ textAlign: 'center !important' }}
                     >
                         {"SOCIALS"}
                     </Typography>
@@ -44,8 +55,8 @@ function Footer() {
 
 
 
-            <Container sx={{ mt: 3 }} className='MarginTop' >
-                <Typography variant="body2" className="Text" align="center" >
+            <Container sx={{ mt: 3 }} className={classes.MarginTop} >
+                <Typography variant="body2" className={classes.Text} align="center" >
                     {"Copyright © "}
                     Bookstore {new Date().getFullYear()}
                     {" Build By Lavish ANd Naveen ."}
