@@ -20,7 +20,7 @@ export const Help = () => {
                 <Button className={classes.FooterBtn} component={Link} to="/">Payments</Button>
                 <Button className={classes.FooterBtn} component={Link} to="/">Shipping</Button>
                 <Button className={classes.FooterBtn} component={Link} to="/">Cencellation & Returns</Button>
-                <Button className={classes.FooterBtn} component={Link} to="/">FAQs</Button>
+                <Button className={classes.FooterBtn} component={Link} to="/faqs">FAQs</Button>
 
             </Grid>
         </>
