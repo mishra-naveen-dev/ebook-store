@@ -16,14 +16,14 @@ export const Help = () => {
     const classes = useStyles();
     return (
         <>
-            <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
-                <Button className={classes.FooterBtn} component={Link} to="/">Payments</Button>
-                <Button className={classes.FooterBtn} component={Link} to="/">Shipping</Button>
-                <Button className={classes.FooterBtn} component={Link} to="/">Cencellation & Returns</Button>
-                <Button className={classes.FooterBtn} component={Link} to="/faqs">FAQs</Button>
-
+            <Grid container direction="column" justifyContent="flex-start" t alignItems="flex-start">
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/about">Pa</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/contact">Contact us</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/">Careers</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/faqs">FAQS</Button>
             </Grid>
         </>
+
     )
 }
 

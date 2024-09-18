@@ -13,20 +13,21 @@ export const FooterStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: "center",
         flexDirection: "column",
-        fontSize: " medium !important",
+        fontSize: " medium ",
         backgroundColor: '#3f51b5',
+        color:'white'
     },
     Text: {
         color: 'white',
-        fontSize: '1rem !important',
-        fontWeight: 'bold !important',
-        marginBottom: '5px !important',
+        fontSize: '1rem ',
+        fontWeight: 'bold ',
+        marginBottom: '5px ',
     },
     MarginTop: {
-        marginTop: '15px !important',
+        marginTop: '15px ',
     },
     MarginRight: {
-        marginRight: '10px !important',
+        marginRight: '10px ',
     }
 
 }));
@@ -35,23 +36,61 @@ export const FooterStyles = makeStyles((theme) => ({
 // Footer Content Style
 export const AboutStyle = makeStyles((theme)=>({
     FooterBtn:{
-        justifyContent: 'flex-start !important',
-        color: 'white !important',
-        fontSize: '1rem !important',
-        textTransform: 'capitalize !important',
+        justifyContent: 'flex-start ',
+        color: 'white ',
+        fontSize: '1rem ',
+        textTransform: 'capitalize ',
         transition:' .5s ease' ,
-        padding: '6px 0px 0px 0px !important ',
+        padding: '6px 0px 0px 0px  ',
         '&:hover ':{
-        textDecoration: 'underline !important',
-        color:'#FFD700 !important',
+        textDecoration: 'underline ',
+        color:'#FFD700 ',
         transform: 'scale(1.15)',
     }
 },
 IconButton:{
-    fontSize:' 2rem !important',
-    padding: '6px 0px 0px 0px !important ',
+    fontSize:' 2rem ',
+    padding: '6px 0px 0px 0px  ',
     '&:hover':{
-      color:'#FFD700 !important',
+      color:'#FFD700 ',
       transform: 'scale(1.15)',
   }}
 }))
+
+
+
+//Faqs page Styling 
+export const FaqsStyles = makeStyles((themes) => ({
+    Box: {
+        width: '75%',
+        borderRadius: '5px',
+        backgroundColor: '#F4F4F4',
+        padding: '10px 20px',
+        margin: '10px 0'
+
+    },
+    container: {
+        width: '100vw',
+        margin: '15px auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+
+    },
+    content: {
+        display: 'none',
+    },
+    showContent: {
+        display: 'block',
+        padding: ' 10px 0'
+    },
+    keyicon:{
+        position:'relative',
+        right:'10px',
+    },
+    faqdiv:{
+        display: 'flex',
+        justifyContent: 'space-between',
+    }
+
+}));
