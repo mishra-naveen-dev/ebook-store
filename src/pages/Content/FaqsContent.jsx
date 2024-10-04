@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { FaqsStyles } from '../../Components/Footer/Styles';
+import { FaqsStyles } from '../../Components/Styles/Styles';
 
 const useStyles = FaqsStyles;
 

@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './pages/AboutUs.jsx';
 import Contact from './pages/Contact.jsx'
 import Faqs from './pages/Faqs.jsx'
+import Policy from './pages/Policies.jsx'
+import TermsConditions from "./pages/TermsConditions.jsx";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
           <Route path="/about" exact element={<About />} />
           <Route path="/contact" exact element={<Contact />} />
           <Route path="/faqs" exact element={<Faqs/>} />
-          
+          <Route path="/policy" exact element={<Policy/>} />
+          <Route path="/termsConditions" exact element={<TermsConditions/>}/>
+        
         </Routes>
         <Footer />
       </div>
