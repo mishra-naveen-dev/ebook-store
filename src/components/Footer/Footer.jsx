@@ -59,7 +59,7 @@ function Footer() {
                 <Typography variant="body2" className={classes.Text} align="center" >
                     {"Copyright © "}
                     Bookstore {new Date().getFullYear()}
-                    {" Build By Lavish ANd Naveen ."}
+                    {" Build By Lavish And Naveen ."}
                 </Typography>
             </Container>
         </footer >
