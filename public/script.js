@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let countdownElement = document.getElementById('countdown');
     let countdownValue = parseInt(countdownElement.textContent);
 
-    let countdownInterval = setInterval(function() {
+    let countdownInterval = setInterval(function () {
         countdownValue -= 1;
         countdownElement.textContent = countdownValue;
 

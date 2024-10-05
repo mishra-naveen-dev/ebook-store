@@ -17,7 +17,7 @@ import TermsAndConditions from "./Pages/Terms.jsx";
 import FAQ from "./Pages/Faq.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
 import { OrderList } from './Pages/Orders.jsx';
-import Contributors from "./Pages/Contributors.jsx"; 
+import Contributors from "./Pages/Contributors.jsx";
 import Preloader from "./Components/Preloader.jsx";
 import { Toast } from "./Toast/Toast.js";
 import GoToTop from "./Components/GoToTop.jsx";
@@ -69,8 +69,10 @@ function App() {
   );
 }
 
+
 function NotFound() {
   return <h1>404 Not Found</h1>;
 }
+
 
 export default App;
