@@ -6,10 +6,19 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import HomeIcon from '@mui/icons-material/Home';
+<<<<<<< HEAD
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Context/AuthContext';
+import { useToast } from "../../Context/ToastContext";
+import sunIcon from '../../assets/sun.png'; // Adjust the path as necessary
+import moonIcon from '../../assets/moon.png'; // Adjust the path as necessary
+import logo from '../../assets/Logo.png'; // Adjust the path as necessary
+=======
 import { Link } from 'react-router-dom';
 import sunIcon from '../../assets/sun.png';
 import moonIcon from '../../assets/moon.png';
 import logo from '../../assets/Logo.png';
+>>>>>>> main
 
 const StyledAppBar = styled(AppBar)({
   backgroundColor: '#002147', // Adjust color to your preference
@@ -20,11 +29,15 @@ const Logo = styled('img')({
   height: 'auto',
   marginRight: 'auto',
 });
+<<<<<<< HEAD
+
+=======
 const MenuContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
 });
+>>>>>>> main
 const StyledButton = styled(Button)({
   fontSize: '1rem', // Adjust font size
   '&:hover': {
@@ -45,29 +58,86 @@ const MobileMenu = styled('div')(({ open }) => ({
   zIndex: 1000,
 }));
 
+<<<<<<< HEAD
+const MenuContainer = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '10px',
+});
+
+const MobileMenu = styled('div')(({ open }) => ({
+  display: open ? 'flex' : 'none',
+  flexDirection: 'column',
+  position: 'absolute',
+  top: '64px', // Adjust based on AppBar height
+  right: '0',
+  backgroundColor: '#002147',
+  width: '100%',
+  padding: '10px',
+  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+  zIndex: 1000, // Ensure it appears above other content
+}));
+
+=======
+>>>>>>> main
 const MobileMenuButton = styled(IconButton)({
   fill: '#fff', // Adjust color as needed
   marginLeft: '-13px', // Adjust for proper alignment
 });
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 function Navbar({ darkMode, toggleDarkMode }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [openMenu, setOpenMenu] = useState(false);
 
+<<<<<<< HEAD
+  const { userLoggedIn, setUserLoggedIn } = useAuth();
+  let navigate = useNavigate();
+  const { showToast } = useToast();
+
+=======
+>>>>>>> main
   const handleMenuClick = () => {
     setOpenMenu(!openMenu);
   };
 
+<<<<<<< HEAD
+  const handleLogout = () => {
+    try {
+      const token = sessionStorage.getItem('token');
+      if (token) {
+        sessionStorage.removeItem('token'); // Remove the token from sessionStorage
+      }
+    } catch (error) {
+      console.error('Error removing token from sessionStorage:', error);
+    }
+
+    setUserLoggedIn(false); // Update the user logged-in state
+    navigate('/', { replace: true }); // Redirect to home page
+    showToast("success", "", "Logged out successfully");
+  };
+
+=======
+>>>>>>> main
   return (
     <StyledAppBar position="sticky">
       <Toolbar style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <IconButton component={Link} to="/">
           <Logo src={logo} alt="Logo" />
         </IconButton>
+<<<<<<< HEAD
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <IconButton onClick={toggleDarkMode} style={{ marginRight: '10px' }}>
+            <img src={darkMode ? sunIcon : moonIcon} alt="Toggle Dark Mode" style={{ width: '20px', height: '20px' }} />
+=======
         <div style={{ display: 'flex', alignitems: 'center' }}>
           <IconButton onClick={toggleDarkMode} style={{ marginRight: '10px' }}>
             <img src={darkMode ? sunIcon : moonIcon} alt="Toggle Dark Mode" style={{ width: '20px', height: '20px' }} />
 
+>>>>>>> main
           </IconButton>
           {isMobile ? (
             <>
@@ -75,6 +145,30 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 <MenuIcon sx={{ fontSize: '2rem' }} />
               </MobileMenuButton>
               <MobileMenu open={openMenu}>
+<<<<<<< HEAD
+                <StyledButton
+                  color="inherit"
+                  component={Link}
+                  to={userLoggedIn ? "#" : "/login"}
+                  onClick={userLoggedIn ? handleLogout : null}
+                  startIcon={<AccountCircleIcon sx={{ fontSize: '1.5rem' }} />}
+                  fullWidth
+                >
+                  {userLoggedIn ? "Logout" : "Login"}
+                </StyledButton>
+                {userLoggedIn && (
+                  <StyledButton
+                    color="inherit"
+                    component={Link}
+                    to="/profile"
+                    startIcon={<AccountCircleIcon sx={{ fontSize: '1.5rem' }} />}
+                    fullWidth
+                  >
+                    Profile
+                  </StyledButton>
+                )}
+=======
+>>>>>>> main
                 <StyledButton color="inherit" component={Link} to="/" startIcon={<HomeIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
                   Home
                 </StyledButton>
@@ -91,6 +185,35 @@ function Navbar({ darkMode, toggleDarkMode }) {
                   Orders
                 </StyledButton>
               </MobileMenu>
+<<<<<<< HEAD
+            </>
+          ) : (
+            <MenuContainer>
+              <StyledButton
+                color="inherit"
+                component={Link}
+                to={userLoggedIn ? "#" : "/login"}
+                onClick={userLoggedIn ? handleLogout : null}
+                startIcon={<AccountCircleIcon sx={{ fontSize: '1.5rem' }} />}
+              >
+                {userLoggedIn ? "Logout" : "Login"}
+              </StyledButton>
+              {userLoggedIn && (
+                <StyledButton
+                  color="inherit"
+                  component={Link}
+                  to="/profile"
+                  startIcon={<AccountCircleIcon sx={{ fontSize: '1.5rem' }} />}
+                >
+                  Profile
+                </StyledButton>
+              )}
+              <StyledButton color="inherit" component={Link} to="/" startIcon={<HomeIcon sx={{ fontSize: '1.5rem' }} />}>
+                Home
+              </StyledButton>
+              <StyledButton color="inherit" component={Link} to="/shop" startIcon={<StoreIcon sx={{ fontSize: '1.5rem' }} />}>
+                Shop
+=======
 
             </>
           ) : (
@@ -99,6 +222,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 Home
               </StyledButton>
               <StyledButton color="inherit" component={Link} to="/shop" tartIcon={<StoreIcon sx={{ fontSize: '1.5rem' }} />}>Shop
+>>>>>>> main
               </StyledButton>
               <StyledButton color="inherit" component={Link} to="/wishlist" startIcon={<FavoriteIcon sx={{ fontSize: '1.5rem' }} />}>
                 Wishlist
@@ -113,7 +237,15 @@ function Navbar({ darkMode, toggleDarkMode }) {
           )}
         </div>
       </Toolbar>
+<<<<<<< HEAD
+    </StyledAppBar>
+  );
+}
+
+export default Navbar;
+=======
     </StyledAppBar >
   );
 }
 export default Navbar;
+>>>>>>> main
