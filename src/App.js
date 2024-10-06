@@ -2,23 +2,17 @@ import "./App.css";
 
 
 import './Animations.css'
-import { Navbar, Footer } from './components/index.js';
+import { Navbar, Footer } from './Components/index.js';
 import { useState, useEffect } from 'react';
 import React from 'react';
 // import Home from './pages/Home.jsx';
 import Home from './pages/Home.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './pages/AboutUs.jsx';
-<<<<<<< HEAD
 import Contact from './pages/Contact.jsx'
 import Faqs from './pages/Faqs.jsx'
 import Policy from './pages/Policies.jsx'
 import TermsConditions from "./pages/TermsConditions.jsx";
-=======
-import Contact from './pages/Contact.jsx';
-
-
->>>>>>> fe0e88ec3f7a96d898c43725aa40316f1a01325d
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
