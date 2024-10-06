@@ -106,19 +106,11 @@ const Contact = () => {
                         fullWidth
                         id="name"
                         name="name" />
-                    <Typography
-                        variant='body1'
-                        className={classes.Labels}
-                    > Email:</Typography>
-                    <TextField
-                        required
-                        fullWidth
-                        name="email"
-                        type="email" />
-                    <Typography
-                        variant='body1'
-                        className={classes.Labels}
-                    >Massage:
+                    <Typography variant='body1' className={classes.Labels}>
+                        Email: </Typography>
+                    <TextField required fullWidth name="email" type="email" />
+                    <Typography variant='body1' className={classes.Labels}>
+                        Massage:
                     </Typography>
                     <TextField
                         tyle='massage'

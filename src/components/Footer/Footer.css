@@ -127,6 +127,7 @@
 =======
 .Text{
   color:white;
+  font-size: 1rem !important;
   font-weight: bold !important;
   margin-bottom: 5px !important;
 }
@@ -137,6 +138,7 @@
 .FooterBtn{
     justify-content: flex-start !important;
     color: white !important;
+    font-size: 1rem !important;
     text-transform: capitalize !important;
     transition: .5s ease ;
     padding: 6px 0px 0px  0px !important;
@@ -149,6 +151,9 @@
     transform: scale(1.15);
    
 >>>>>>> main
+}
+.IconButton{
+  font-size: 2rem !important;
 }
 .IconButton:hover{
     color:#FFD700 !important;

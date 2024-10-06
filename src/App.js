@@ -23,6 +23,7 @@ import { Toast } from "./Toast/Toast.js";
 import GoToTop from "./Components/GoToTop.jsx";
 import License from "./Pages/Licensing.jsx";
 
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -43,6 +44,7 @@ function App() {
       <div className="App" style={appStyle}>
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Routes>
+
           <Route path="/" element={<HomePage darkMode={darkMode} />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/:id" element={<Product />} />
@@ -59,6 +61,7 @@ function App() {
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/contributors" element={<Contributors />} />
           <Route path="*" element={<NotFound />} /> {/* Fallback route */}
+
         </Routes>
         <Toast position="bottom-right" />
         <Footer />
