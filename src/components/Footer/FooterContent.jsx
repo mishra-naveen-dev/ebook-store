@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import Button from '@mui/material/Button';
@@ -59,3 +61,4 @@ export const Socials = () => {
         </>
     )
 }
+>>>>>>> main
