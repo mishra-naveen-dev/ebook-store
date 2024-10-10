@@ -4,31 +4,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-<<<<<<< HEAD
-  background: rgba(159, 176, 199, 0.9); /* Slightly transparent background */
-=======
   background: #286ac5;
->>>>>>> main
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 99999;
-<<<<<<< HEAD
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Adjust timing here */
-}
-
-/* Fade-out effect for the preloader */
-.preloader.fade-out {
-  opacity: 0;
-  transform: scale(0.9); /* Shrinks a bit during fade-out */
-}
-=======
   transition: opacity 0.5s ease-out;
 }
 
->>>>>>> main
 .preloader-video {
   position: absolute;
   top: 50%;
@@ -38,10 +21,7 @@
   object-fit: cover;
   transform: translate(-50%, -50%);
 }
-<<<<<<< HEAD
-=======
 
 .preloader.fade-out {
   opacity: 0;
 }
->>>>>>> main
