@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton"; // Import IconButton
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Import VisibilityIcon
@@ -55,85 +55,85 @@ const LoginPage = () => {
 
   return (
     <>
-    <Preloader />
-    <Container maxWidth="xl">
-      <div style={{ marginTop: "100px", marginBottom: "180px" }}>
-        <Toaster />
-        <Grid container spacing={2} sx={{ justifyContent: "center" }}>
-          <Grid item xs={12} md={6}>
-            <Box sx={{ display: { xs: "none", md: "block" } }}>
-              <Lottie
-                animationData={loginAnimation}
-                style={{ height: "500px" }}
-                className="fromLeft"
-              />
-            </Box>
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <form onSubmit={handleSubmit} className="fromRight">
-              <Typography variant="h5" align="center" gutterBottom className=" dark:text-white">
-                Login
-              </Typography>
-              <input
-                placeholder="Email"
-                fullWidth
-                variant="outlined"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                margin="normal"
-                color="primary"
-                className="w-full p-3 mb-4 bg-transparent border border-black rounded-md dark:text-white"
-              />
-              <Box sx={{ position: "relative", display: "flex", alignItems: "center" }}>
-                <input
-                  placeholder="Password"
-                  label="Password"
-                  type={showPassword ? "text" : "password"} // Set input type dynamically
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  margin="normal"
-                  className="w-full p-3 bg-transparent border border-black rounded-md dark:text-white"
+      <Preloader />
+      <Container maxWidth="xl">
+        <div style={{ marginTop: "100px", marginBottom: "180px" }}>
+          <Toaster />
+          <Grid container spacing={2} sx={{ justifyContent: "center" }}>
+            <Grid item xs={12} md={6}>
+              <Box sx={{ display: { xs: "none", md: "block" } }}>
+                <Lottie
+                  animationData={loginAnimation}
+                  style={{ height: "500px" }}
+                  className="fromLeft"
                 />
-                <IconButton
-                  onClick={togglePasswordVisibility}
-                  sx={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
-                >
-                  {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                </IconButton>
               </Box>
-              {error && (
-                <Typography color="error" align="center">
-                  {error}
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={6}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <form onSubmit={handleSubmit} className="fromRight">
+                <Typography variant="h5" align="center" gutterBottom className=" dark:text-white">
+                  Login
                 </Typography>
-              )}
-              <Button
-                variant="contained"
-                type="submit"
-                fullWidth
-                sx={{
-                  mt: 2,
-                  "&:hover": { backgroundColor: "#0069d9" },
-                }}
-              >
-                Login
-              </Button>
-              <Typography align="center" sx={{ mt: 2, mr: 2 }}  className="text-black dark:text-white">
-                Don't have an account? <Link to="/signup">Sign up</Link>
-              </Typography>
-            </form>
+                <input
+                  placeholder="Email"
+                  fullWidth
+                  variant="outlined"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  margin="normal"
+                  color="primary"
+                  className="w-full p-3 mb-4 bg-transparent border border-black rounded-md dark:text-white"
+                />
+                <Box sx={{ position: "relative", display: "flex", alignItems: "center" }}>
+                  <input
+                    placeholder="Password"
+                    label="Password"
+                    type={showPassword ? "text" : "password"} // Set input type dynamically
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    margin="normal"
+                    className="w-full p-3 bg-transparent border border-black rounded-md dark:text-white"
+                  />
+                  <IconButton
+                    onClick={togglePasswordVisibility}
+                    sx={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
+                  >
+                    {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                  </IconButton>
+                </Box>
+                {error && (
+                  <Typography color="error" align="center">
+                    {error}
+                  </Typography>
+                )}
+                <Button
+                  variant="contained"
+                  type="submit"
+                  fullWidth
+                  sx={{
+                    mt: 2,
+                    "&:hover": { backgroundColor: "#0069d9" },
+                  }}
+                >
+                  Login
+                </Button>
+                <Typography align="center" sx={{ mt: 2, mr: 2 }} className="text-black dark:text-white">
+                  Don't have an account? <Link to="/signup">Sign up</Link>
+                </Typography>
+              </form>
+            </Grid>
           </Grid>
-        </Grid>
-      </div>
-    </Container>
+        </div>
+      </Container>
     </>
   );
 };
