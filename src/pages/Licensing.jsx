@@ -12,7 +12,7 @@ const License = () => {
       <Preloader />
       <LicenseWrapper>
         <h1>MIT License</h1>
-        <p>Copyright (c) 2024 Trisha Sahu</p>
+        <p>Copyright (c) 2024 Naveen And Lavish</p>
         <p>
           Permission is hereby granted, free of charge, to any person obtaining a copy
           of this software and associated documentation files (the "Software"), to deal

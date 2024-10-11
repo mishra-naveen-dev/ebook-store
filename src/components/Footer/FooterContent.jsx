@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import Button from '@mui/material/Button';
@@ -22,7 +20,7 @@ export const Help = () => {
                 <Button className={classes.FooterBtn} color="inherit" component={Link} to="/about">Payments</Button>
                 <Button className={classes.FooterBtn} color="inherit" component={Link} to="/contact">Shipping</Button>
                 <Button className={classes.FooterBtn} color="inherit" component={Link} to="/">Cancellation & Returns</Button>
-                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/faqs">FAQS</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/faq">FAQS</Button>
             </Grid>
         </>
 
@@ -84,4 +82,3 @@ export const Socials = () => {
         </>
     )
 }
->>>>>>> main
