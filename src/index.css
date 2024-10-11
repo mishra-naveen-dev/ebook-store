@@ -15,18 +15,12 @@ body {
   z-index: 9999;
 }
 
-<<<<<<< HEAD
-
-::-webkit-scrollbar-track {
-  background: rgb(252, 252, 253); /* Color of the track (the empty space behind the scrollbar) */
-=======
 ::-webkit-scrollbar-track {
   background: rgb(
     252,
     252,
     253
   ); /* Color of the track (the empty space behind the scrollbar) */
->>>>>>> main
 }
 
 ::-webkit-scrollbar-thumb {
@@ -35,12 +29,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-<<<<<<< HEAD
-  background-color: rgb(15, 103, 198) ; /* Blue color for the scrollbar */
- 
-=======
   background-color: rgb(15, 103, 198); /* Blue color for the scrollbar */
->>>>>>> main
 }
 
 code {

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import Button from '@mui/material/Button';
@@ -10,7 +8,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { AboutStyle as Styles } from '../Styles/Styles';
-import './Footer.css';
+// import './Footer.css';
 
 const useStyles = Styles;
 
@@ -51,7 +49,7 @@ export const Legal = () => {
         <>
             <Grid container direction="column" justifyContent="flex-start" t alignItems="flex-start">
                 <Button className={classes.FooterBtn} color="inherit" component={Link} to="/policy">Privacy Policy</Button>
-                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/termsConditions">Terms & Conditions</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/termS">Terms & Conditions</Button>
                 <Button className={classes.FooterBtn} color="inherit" component={Link} to="/">Licensing</Button>
             </Grid>
         </>
@@ -84,4 +82,3 @@ export const Socials = () => {
         </>
     )
 }
->>>>>>> main
