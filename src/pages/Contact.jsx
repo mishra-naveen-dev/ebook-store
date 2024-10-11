@@ -23,8 +23,10 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '10px',
         fontWeight: 'bold',
     },
-}
-));
+    form:{
+        width: '100%',
+    },
+}));
 
 const Contact = () => {
     const classes = useStyles();
@@ -33,36 +35,24 @@ const Contact = () => {
 
             <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
 
-                <Typography
-                    className={classes.Center}
-                    component="h1" variant="h4"
-                    sx={{ alignItems: 'center', }}>
-                    {' Contact Us'}
+                <Typography className={classes.Center} component="h1" variant="h4" sx={{ alignItems: 'center', }}> 
+                     {' Contact Us'}
                 </Typography>
-                <Box component="form" sx={{ mt: 1 }}>
-                    <Typography
-                        variant='body1'
-                        className={classes.Labels}
+                <Box component="form" sx={{ mt: 1 }} className={classes.form}>
+                    <Typography variant='body1'  className={classes.Labels}
                     > Name:</Typography>
-                    <TextField
-                        required
-                        fullWidth
-                        id="name"
-                        name="name" />
+
+                    <TextField required fullWidth id="name" name="name" />
+
                     <Typography variant='body1' className={classes.Labels}>
                         Email: </Typography>
                     <TextField required fullWidth name="email" type="email" />
+
                     <Typography variant='body1' className={classes.Labels}>
                         Massage:
-                    </Typography>
-                    <TextField
-                        tyle='massage'
-                        name='massage'
-                        multiline
-                        rows={4}
-                        fullWidth
 
-                    />
+                    </Typography>
+                    <TextField tyle='massage' name='massage' multiline  rows={4}  fullWidth />
                     <div className={classes.Center}>
                         <Button type="submit"
                             variant="contained"

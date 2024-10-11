@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Container, Grid } from "@material-ui/core";
 import { Help, About, Socials, Legal } from "./FooterContent";
-import "./Footer.css";
+// import "./Footer.css";
 import { FooterStyles as Styles } from '../Styles/Styles';
 
 
