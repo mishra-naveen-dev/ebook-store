@@ -8,7 +8,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { AboutStyle as Styles } from '../Styles/Styles';
-// import './Footer.css';
+
 
 const useStyles = Styles;
 
@@ -17,10 +17,10 @@ export const Help = () => {
     return (
         <>
             <Grid container direction="column" justifyContent="flex-start" t alignItems="flex-start">
-                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/about">Payments</Button>
-                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/contact">Shipping</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/">Payments</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/">Shipping</Button>
                 <Button className={classes.FooterBtn} color="inherit" component={Link} to="/">Cancellation & Returns</Button>
-                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/faq">FAQS</Button>
+                <Button className={classes.FooterBtn} color="inherit" component={Link} to="/faqs">FAQS</Button>
             </Grid>
         </>
 
