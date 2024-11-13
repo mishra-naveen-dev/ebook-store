@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import { fetchCartData, addItemToCart, removeItemFromCart } from "../api/api.js";
 import "./Cart.css";
-import Preloader from '../Components/Preloader';
+import Preloader from '../components/Preloader';
 
 
 function Cart() {

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Box, Container, Grid, IconButton, Typography } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Import VisibilityIcon
@@ -10,7 +10,7 @@ import loginAnimation from '../Lottie-animation/loginAnimation.json'
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast"
 import { useNavigate } from "react-router-dom";
-import Preloader from "../Components/Preloader";
+import Preloader from "../components/Preloader";
 
 
 const SignUpPage = () => {

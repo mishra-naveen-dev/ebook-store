@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton"; // Import IconButton
 import VisibilityIcon from "@mui/icons-material/Visibility"; // Import VisibilityIcon
@@ -13,7 +13,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import { useToast } from "../Context/ToastContext";
-import Preloader from "../Components/Preloader";
+import Preloader from "../components/Preloader";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
