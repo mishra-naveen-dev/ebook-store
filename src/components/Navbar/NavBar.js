@@ -9,22 +9,27 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from 'react-router-dom';
 import sunIcon from '../../assets/sun.png';
 import moonIcon from '../../assets/moon.png';
-import logo from '../../assets/Logo.png';
+import logo from '../../assets/image/Logo.jpg';
 
 const StyledAppBar = styled(AppBar)({
   backgroundColor: '#002147', // Adjust color to your preference
 });
 
-const Logo = styled('img')({
-  width: '220px',
+const Logo = styled('img')(({ theme }) => ({
   height: 'auto',
-  marginRight: 'auto',
-});
+  maxWidth: '100%', // Allow the logo to adjust its width according to the container size
+  maxHeight: '60px', // Set a max height for better responsiveness
+  [theme.breakpoints.down('sm')]: {
+    maxHeight: '40px', // Make the logo smaller on mobile screens
+  },
+}));
+
 const MenuContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
   gap: '10px',
 });
+
 const StyledButton = styled(Button)({
   fontSize: '1rem', // Adjust font size
   '&:hover': {
@@ -32,6 +37,7 @@ const StyledButton = styled(Button)({
     textDecoration: 'underline', // Underline on hover
   },
 });
+
 const MobileMenu = styled('div')(({ open }) => ({
   display: open ? 'flex' : 'none',
   flexDirection: 'column',
@@ -49,6 +55,7 @@ const MobileMenuButton = styled(IconButton)({
   fill: '#fff', // Adjust color as needed
   marginLeft: '-13px', // Adjust for proper alignment
 });
+
 function Navbar({ darkMode, toggleDarkMode }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
@@ -64,10 +71,9 @@ function Navbar({ darkMode, toggleDarkMode }) {
         <IconButton component={Link} to="/">
           <Logo src={logo} alt="Logo" />
         </IconButton>
-        <div style={{ display: 'flex', alignitems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <IconButton onClick={toggleDarkMode} style={{ marginRight: '10px' }}>
             <img src={darkMode ? sunIcon : moonIcon} alt="Toggle Dark Mode" style={{ width: '20px', height: '20px' }} />
-
           </IconButton>
           {isMobile ? (
             <>
@@ -91,14 +97,14 @@ function Navbar({ darkMode, toggleDarkMode }) {
                   Orders
                 </StyledButton>
               </MobileMenu>
-
             </>
           ) : (
             <MenuContainer>
               <StyledButton color="inherit" component={Link} to="/" startIcon={<HomeIcon sx={{ fontSize: '1.5rem' }} />}>
                 Home
               </StyledButton>
-              <StyledButton color="inherit" component={Link} to="/shop" tartIcon={<StoreIcon sx={{ fontSize: '1.5rem' }} />}>Shop
+              <StyledButton color="inherit" component={Link} to="/shop" startIcon={<StoreIcon sx={{ fontSize: '1.5rem' }} />}>
+                Shop
               </StyledButton>
               <StyledButton color="inherit" component={Link} to="/wishlist" startIcon={<FavoriteIcon sx={{ fontSize: '1.5rem' }} />}>
                 Wishlist
@@ -113,7 +119,8 @@ function Navbar({ darkMode, toggleDarkMode }) {
           )}
         </div>
       </Toolbar>
-    </StyledAppBar >
+    </StyledAppBar>
   );
 }
+
 export default Navbar;

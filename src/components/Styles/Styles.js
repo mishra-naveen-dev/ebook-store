@@ -15,7 +15,7 @@ export const FooterStyles = makeStyles((theme) => ({
         flexDirection: "column",
         fontSize: " medium ",
         backgroundColor: '#3f51b5',
-        color:'white'
+        color: 'white'
     },
     Text: {
         color: 'white',
@@ -34,27 +34,28 @@ export const FooterStyles = makeStyles((theme) => ({
 
 
 // Footer Content Style
-export const AboutStyle = makeStyles((theme)=>({
-    FooterBtn:{
+export const AboutStyle = makeStyles((theme) => ({
+    FooterBtn: {
         justifyContent: 'flex-start ',
         color: 'white ',
         fontSize: '1rem ',
         textTransform: 'capitalize ',
-        transition:' .5s ease' ,
+        transition: ' .5s ease',
         padding: '6px 0px 0px 0px  ',
-        '&:hover ':{
-        textDecoration: 'underline ',
-        color:'#FFD700 ',
-        transform: 'scale(1.15)',
+        '&:hover ': {
+            textDecoration: 'underline ',
+            color: '#FFD700 ',
+            transform: 'scale(1.15)',
+        }
+    },
+    IconButton: {
+        fontSize: ' 2rem ',
+        padding: '6px 0px 0px 0px  ',
+        '&:hover': {
+            color: '#FFD700 ',
+            transform: 'scale(1.15)',
+        }
     }
-},
-IconButton:{
-    fontSize:' 2rem ',
-    padding: '6px 0px 0px 0px  ',
-    '&:hover':{
-      color:'#FFD700 ',
-      transform: 'scale(1.15)',
-  }}
 }))
 
 
@@ -84,11 +85,11 @@ export const FaqsStyles = makeStyles((themes) => ({
         display: 'block',
         padding: ' 10px 0'
     },
-    keyicon:{
-        position:'relative',
-        right:'10px',
+    keyicon: {
+        position: 'relative',
+        right: '10px',
     },
-    faqdiv:{
+    faqdiv: {
         display: 'flex',
         justifyContent: 'space-between',
     }

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Spinner from "./Spinner";
+import Spinner from "./Spinner.js";
 import { fetchCartData, addItemToCart, removeItemFromCart } from "../api/api.js";
 import "./Cart.css";
-import Preloader from '../components/Preloader';
+
+import Preloader from '../Components/Preloader.jsx';
+
 
 
 function Cart() {
@@ -124,23 +126,52 @@ function Cart() {
 
   if (error) {
     return (
-    <>
-      <Preloader/>
+      <>
+        <Preloader />
+        <div className="cart-container dark:bg-[rgb(40,40,40)]">
+          <h1 className="cart-header dark:text-white">Shopping Cart</h1>
+          <p className="error-message">{error}</p>
+          <button onClick={handleRetry} className="retry-button dark:text-white">
+            Retry
+          </button>
+          {/* <hr /> */}
+          <table className="cart-table">
+            <thead>
+              <tr className="dark:bg-[rgb(40,40,40)]">
+                <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Image</th>
+                <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Name</th>
+                <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Price</th>
+                <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Quantity</th>
+                <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {renderCartItems()}
+            </tbody>
+          </table>
+          <div className="cart-summary">
+            <div className="cart-total dark:text-white">Total: ${data ? data.total.toFixed(2) : "0.00"}</div>
+            <button className="checkout-button dark:text-white">Proceed to Checkout</button>
+          </div>
+          <hr />
+          {renderSuggestedProducts()}
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <><Preloader />
       <div className="cart-container dark:bg-[rgb(40,40,40)]">
         <h1 className="cart-header dark:text-white">Shopping Cart</h1>
-        <p className="error-message">{error}</p>
-        <button onClick={handleRetry} className="retry-button dark:text-white">
-          Retry
-        </button>
-        {/* <hr /> */}
         <table className="cart-table">
           <thead>
-            <tr className="dark:bg-[rgb(40,40,40)]">
-              <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Image</th>
-              <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Name</th>
-              <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Price</th>
-              <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Quantity</th>
-              <th className="dark:text-white dark:bg-[rgb(40,40,40)]">Action</th>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -151,38 +182,9 @@ function Cart() {
           <div className="cart-total dark:text-white">Total: ${data ? data.total.toFixed(2) : "0.00"}</div>
           <button className="checkout-button dark:text-white">Proceed to Checkout</button>
         </div>
-        <hr />
+        {/* <hr /> */}
         {renderSuggestedProducts()}
       </div>
-      </>
-    );
-  }
-
-  return (
-    <><Preloader/>
-    <div className="cart-container dark:bg-[rgb(40,40,40)]">
-      <h1 className="cart-header dark:text-white">Shopping Cart</h1>
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderCartItems()}
-        </tbody>
-      </table>
-      <div className="cart-summary">
-        <div className="cart-total dark:text-white">Total: ${data ? data.total.toFixed(2) : "0.00"}</div>
-        <button className="checkout-button dark:text-white">Proceed to Checkout</button>
-      </div>
-      {/* <hr /> */}
-      {renderSuggestedProducts()}
-    </div>
     </>
   );
 }

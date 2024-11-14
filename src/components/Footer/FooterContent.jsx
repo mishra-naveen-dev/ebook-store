@@ -7,8 +7,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { AboutStyle as Styles } from '../Styles/styles';
+
+import { AboutStyle as Styles } from '../Styles/Styles';
 import './Footer.css';
+
+
 
 const useStyles = Styles;
 

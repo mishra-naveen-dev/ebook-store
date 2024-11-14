@@ -27,7 +27,7 @@ const SignUpPage = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:8080/customer/register", { name, email, password})
+            const response = await axios.post("http://localhost:8080/customer/register", { name, email, password })
 
             console.log(response.data);
             toast.success("register sucess");
@@ -52,66 +52,66 @@ const SignUpPage = () => {
 
     return (
 
-        <><Preloader/>
-        <Container maxWidth="xl">
-            <Toaster/>
-            <div style={{ marginTop: "100px", marginBottom: "180px" }}>
+        <><Preloader />
+            <Container maxWidth="xl">
+                <Toaster />
+                <div style={{ marginTop: "100px", marginBottom: "180px" }}>
 
-                <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
-                    <Grid item xs={12} md={6}>
-                        <Box sx={{ display: { xs: "none", md: "block" } }}>
-                            <Lottie animationData={loginAnimation} style={{ height: '500px' }} />
-                        </Box>
-                    </Grid>
-                    <Grid
-                        item
-                        xs={12}
-                        md={6}
-                        sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}
-                    >
-
-                        <form onSubmit={handleSubmit}>
-                            <Typography variant="h5" align="center" gutterBottom className="dark:text-white">
-                                Register
-                            </Typography>
-                            <input
-                                placeholder="Name"
-                                variant="outlined"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                margin="normal"
-                                className="w-full mb-4 p-3 bg-transparent border border-black rounded-md dark:text-white"
-                            />
-                            <input 
-                                placeholder="Email"
-                                variant="outlined"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                margin="normal"
-                                className="w-full mb-4 p-3 bg-transparent border border-black rounded-md dark:text-white"
-                            />
-                            <Box sx={{ position: "relative", display: "flex", alignItems: "center" }}>
-                                <input 
-                                    placeholder="Password"
-                                    variant="outlined"
-                                    value={password}
-                                    type={showPassword ? "text" : "password"} // Set input type dynamically
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full p-3 bg-transparent border border-black rounded-md dark:text-white"
-                                    margin="normal"
-                                />
-                                <IconButton
-                                    onClick={togglePasswordVisibility}
-                                    sx={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
-                                    >
-                                    {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                                </IconButton>
+                    <Grid container spacing={2} sx={{ justifyContent: 'center' }}>
+                        <Grid item xs={12} md={6}>
+                            <Box sx={{ display: { xs: "none", md: "block" } }}>
+                                <Lottie animationData={loginAnimation} style={{ height: '500px' }} />
                             </Box>
-                            {/* <TextField
+                        </Grid>
+                        <Grid
+                            item
+                            xs={12}
+                            md={6}
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+
+                            <form onSubmit={handleSubmit}>
+                                <Typography variant="h5" align="center" gutterBottom className="dark:text-white">
+                                    Register
+                                </Typography>
+                                <input
+                                    placeholder="Name"
+                                    variant="outlined"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    margin="normal"
+                                    className="w-full mb-4 p-3 bg-transparent border border-black rounded-md dark:text-white"
+                                />
+                                <input
+                                    placeholder="Email"
+                                    variant="outlined"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    margin="normal"
+                                    className="w-full mb-4 p-3 bg-transparent border border-black rounded-md dark:text-white"
+                                />
+                                <Box sx={{ position: "relative", display: "flex", alignItems: "center" }}>
+                                    <input
+                                        placeholder="Password"
+                                        variant="outlined"
+                                        value={password}
+                                        type={showPassword ? "text" : "password"} // Set input type dynamically
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        className="w-full p-3 bg-transparent border border-black rounded-md dark:text-white"
+                                        margin="normal"
+                                    />
+                                    <IconButton
+                                        onClick={togglePasswordVisibility}
+                                        sx={{ position: "absolute", right: "10px", top: "50%", transform: "translateY(-50%)" }}
+                                    >
+                                        {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    </IconButton>
+                                </Box>
+                                {/* <TextField
                                 label="Phone"
                                 fullWidth
                                 variant="outlined"
@@ -127,23 +127,23 @@ const SignUpPage = () => {
                                 onChange={(e) => setAddress(e.target.value)}
                                 margin="normal"
                             /> */}
-                            {error && <Typography color="error" align="center">{error}</Typography>}
-                            <Button
-                                variant="contained"
-                                type="submit"
-                                fullWidth
-                                sx={{
-                                    mt: 2,
-                                    "&:hover": { backgroundColor: "#0069d9" },
-                                }}
-                            >
-                                Register
-                            </Button>
-                        </form>
+                                {error && <Typography color="error" align="center">{error}</Typography>}
+                                <Button
+                                    variant="contained"
+                                    type="submit"
+                                    fullWidth
+                                    sx={{
+                                        mt: 2,
+                                        "&:hover": { backgroundColor: "#0069d9" },
+                                    }}
+                                >
+                                    Register
+                                </Button>
+                            </form>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </div>
-        </Container>
+                </div>
+            </Container>
         </>
     );
 };

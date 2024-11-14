@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { FaChevronUp } from "react-icons/fa"; 
+import { FaChevronUp } from "react-icons/fa";
 
 const GoToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
