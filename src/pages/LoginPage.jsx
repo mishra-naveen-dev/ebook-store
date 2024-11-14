@@ -13,7 +13,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import { useToast } from "../Context/ToastContext";
-import Preloader from "../Components/Preloader";
+import Preloader from "../components/Preloader";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

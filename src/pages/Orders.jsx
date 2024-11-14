@@ -12,7 +12,7 @@ import {
   TableHead,
   TableRow,
   TextField,
-  InputAdornment,
+  // InputAdornment,
   IconButton,
   Button,
   Box,
@@ -20,7 +20,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import SortIcon from "@mui/icons-material/Sort";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import Preloader from "../Components/Preloader";
+import Preloader from "../components/Preloader";
 
 function OrderList() {
   const [isLoading, setIsLoading] = useState(true);

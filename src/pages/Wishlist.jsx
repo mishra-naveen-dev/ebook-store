@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaHeart, FaTrash, FaTable, FaRegHeart } from "react-icons/fa";
 import "./Wishlist.css"; // Import CSS file for wishlist component styling
-import Preloader from "../Components/Preloader";
+import Preloader from "../components/Preloader";
 
 function Wishlist() {
   const [isLoading, setIsLoading] = useState(true);

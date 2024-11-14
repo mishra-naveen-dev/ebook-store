@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import B1Child from '../assets/image/B1Child.jpeg';
 import AuthorImage from '../assets/image/author1.jpeg';
 import Spinner from './Spinner';
-import SearchBar from '../Components/SearchBar';
-import Preloader from '../Components/Preloader';
+import SearchBar from '../components/SearchBar';
+import Preloader from '../components/Preloader';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);

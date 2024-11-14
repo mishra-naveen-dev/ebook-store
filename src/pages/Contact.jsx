@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Button, TextField, Typography, Box } from '@mui/material';
 import { Container } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
@@ -67,6 +68,7 @@ const Contact = () => {
       </Box>
     </Container>
   );
+
 };
 
 export default Contact;
