@@ -6,6 +6,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/Person'; // Import LoginIcon
+import SignUpIcon from '@mui/icons-material/PersonAdd'; // Import SignUpIcon
 import { Link } from 'react-router-dom';
 import sunIcon from '../../assets/sun.png';
 import moonIcon from '../../assets/moon.png';
@@ -87,14 +89,20 @@ function Navbar({ darkMode, toggleDarkMode }) {
                 <StyledButton color="inherit" component={Link} to="/shop" startIcon={<StoreIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
                   Shop
                 </StyledButton>
-                <StyledButton color="inherit" component={Link} to="/wishlist" startIcon={<FavoriteIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
+                {/* <StyledButton color="inherit" component={Link} to="/wishlist" startIcon={<FavoriteIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
                   Wishlist
-                </StyledButton>
-                <StyledButton color="inherit" component={Link} to="/cart" startIcon={<ShoppingCartIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
+                </StyledButton> */}
+                {/* <StyledButton color="inherit" component={Link} to="/cart" startIcon={<ShoppingCartIcon sx={{ fontSize: '1.5 rem' }} />} fullWidth>
                   Cart
-                </StyledButton>
+                </StyledButton> */}
                 <StyledButton color="inherit" component={Link} to="/orders" startIcon={<ShoppingBagIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
                   Orders
+                </StyledButton>
+                <StyledButton color="inherit" component={Link} to="/login" startIcon={<LoginIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
+                  Login
+                </StyledButton>
+                <StyledButton color="inherit" component={Link} to="/signup" startIcon={<SignUpIcon sx={{ fontSize: '1.5rem' }} />} fullWidth>
+                  Sign Up
                 </StyledButton>
               </MobileMenu>
             </>
@@ -106,14 +114,20 @@ function Navbar({ darkMode, toggleDarkMode }) {
               <StyledButton color="inherit" component={Link} to="/shop" startIcon={<StoreIcon sx={{ fontSize: '1.5rem' }} />}>
                 Shop
               </StyledButton>
-              <StyledButton color="inherit" component={Link} to="/wishlist" startIcon={<FavoriteIcon sx={{ fontSize: '1.5rem' }} />}>
+              {/* <StyledButton color="inherit" component={Link} to="/wishlist" startIcon={<FavoriteIcon sx={{ fontSize: '1.5rem' }} />}>
                 Wishlist
-              </StyledButton>
-              <StyledButton color="inherit" component={Link} to="/cart" startIcon={<ShoppingCartIcon sx={{ fontSize: '1.5rem' }} />}>
+              </StyledButton> */}
+              {/* <StyledButton color="inherit" component={Link} to="/cart" startIcon={<ShoppingCartIcon sx={{ fontSize: '1.5rem' }} />}>
                 Cart
-              </StyledButton>
+              </StyledButton> */}
               <StyledButton color="inherit" component={Link} to="/orders" startIcon={<ShoppingBagIcon sx={{ fontSize: '1.5rem' }} />}>
                 Orders
+              </StyledButton>
+              <StyledButton color="inherit" component={Link} to="/login" startIcon={<LoginIcon sx={{ fontSize: '1.5rem' }} />}>
+                Login
+              </StyledButton>
+              <StyledButton color="inherit" component={Link} to="/signup" startIcon={<SignUpIcon sx={{ fontSize: '1.5rem' }} />}>
+                Sign Up
               </StyledButton>
             </MenuContainer>
           )}

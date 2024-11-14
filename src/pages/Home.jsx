@@ -4,11 +4,15 @@ import AuthorImage from '../assets/image/author1.jpeg';
 import Spinner from './Spinner';
 import SearchBar from '../Components/SearchBar';
 import Preloader from '../Components/Preloader';
+import Card from "../Components/Cart"
+import BookDetail from './BookDetail';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
+  // const [search, setSearch] = useState("");
+  const [bookData, setBookData] = useState([])
   useEffect(() => {
     setTimeout(() => {
       setData({
@@ -22,10 +26,14 @@ const Home = () => {
     }, 2000);
   }, []);
 
-  const handleSearch = (query) => {
-    console.log('Search query:', query);
+  const handleSearch = (bookData) => {
+    console.log('Search query:', bookData);
     // Implement search logic here
+    setBookData(bookData);
   };
+
+  const [Result, setResult] = useState([]);
+
 
   return (
     <>
@@ -34,7 +42,7 @@ const Home = () => {
         {isLoading && <Spinner />}
         {!isLoading && (
           <>
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch} setResult={setResult} />
 
             <header className="bg-white shadow dark:bg-inherit">
               <div className="container mx-auto p-6">
@@ -47,7 +55,8 @@ const Home = () => {
             </header>
 
             <section className="container mx-auto my-8">
-              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Book Categories</h2>
+              <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">Book Categories</h2>
+              <BookDetail bookData={Result} />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Book Category Cards */}
                 <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">

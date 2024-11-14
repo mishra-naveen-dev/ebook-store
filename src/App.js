@@ -6,7 +6,7 @@ import { Navbar, Footer } from './Components/index.js';
 import LoginPage from './Pages/LoginPage.jsx';
 import SignUpPage from './Pages/SignUpPage.jsx';
 import Cart from './Pages/Cart.jsx';
-import Wishlist from './Pages/Wishlist.jsx';
+// import Wishlist from './Pages/Wishlist.jsx';
 import HomePage from './Pages/Home.jsx';
 import Contact from "./Pages/Contact.jsx";
 import PrivacyPolicy from "./Pages/Policies.jsx";
@@ -17,14 +17,13 @@ import Preloader from "./Components/Preloader.jsx";
 import { Toast } from "./Toast/Toast.js";
 import GoToTop from "./Components/GoToTop.jsx";
 
-
+import BookDetail from "./Pages/BookDetail.jsx"
 // import License from "./Pages/Licensing.jsx";
-// import { OrderList } from './Pages/Orders.jsx';
+import { OrderList } from './Pages/Orders.jsx';
 // import Contributors from "./Pages/Contributors.jsx"
 // import Shop from "./Pages/Shop.jsx";
 // import { ProfilePage, Product } from './Components/index';
-// import LoginPage from './Pages/LoginPage.jsx';
-// import SignUpPage from './Pages/SignUpPage.jsx';
+
 // import Cart from './Pages/Cart.jsx';
 // import Orders from './Pages/Orders.jsx';
 // import Wishlist from './Pages/Wishlist.jsx';
@@ -58,13 +57,16 @@ function App() {
           {/* <Route path="/shop/:id" element={<Product />} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          {/* <Route path="/wishlist" element={<Wishlist />} /> */}
           <Route path="/cart" element={<Cart />} />
-          {/* <Route path="/orders" element={<OrderList />} /> */}
+          <Route path="/orders" element={<OrderList />} />
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/faqs" element={<FAQ />} />
           <Route path="/policy" element={<PrivacyPolicy />} />
+          <Route path="/book-detail" element={<BookDetail />} /> {/* Add this line */}
+
           {/* <Route path="/licensing" element={<License />} /> */}
           <Route path="/terms" element={<TermsAndConditions />} />
           {/* <Route path="/contributors" element={<Contributors />} /> */}
