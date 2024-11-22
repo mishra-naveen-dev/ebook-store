@@ -1,3 +1,4 @@
+
 // import React, { useState, useEffect } from "react";
 // import Spinner from "./Spinner.js";
 // import { fetchCartData, addItemToCart, removeItemFromCart } from "../api/api.js";
@@ -10,7 +11,6 @@
 //   const [data, setData] = useState(null);
 //   const [error, setError] = useState(null);
 //   const [retryCount, setRetryCount] = useState(0);
-
 //   useEffect(() => {
 //     fetchCartData()
 //       .then((cartData) => {

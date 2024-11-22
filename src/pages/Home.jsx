@@ -3,9 +3,10 @@ import B1Child from '../assets/image/B1Child.jpeg';
 import AuthorImage from '../assets/image/author1.jpeg';
 import Spinner from './Spinner';
 import SearchBar from '../Components/SearchBar';
-import Preloader from '../Components/Preloader';
+
 import Card from "../Components/Cart"
 import BookDetail from './BookDetail';
+
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      <Preloader />
+
       <div className="bg-gray-100 dark:bg-[rgb(51,51,51)] min-h-screen">
         {isLoading && <Spinner />}
         {!isLoading && (

@@ -3,6 +3,9 @@ import { Container, Button, Typography } from "@mui/material";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
+import { useToast } from "../Context/ToastContext";
+// import Preloader from "../components/Preloader";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

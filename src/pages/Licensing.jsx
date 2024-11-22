@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import Preloader from '../Components/Preloader';
+// import Preloader from '../components/Preloader';
 
 const License = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+
   return (
     <>
-      <Preloader />
+
       <LicenseWrapper>
         <h1>MIT License</h1>
         <p>Copyright (c) 2024 Naveen And Lavish</p>
