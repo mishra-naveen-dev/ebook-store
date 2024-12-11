@@ -3,18 +3,15 @@ import B1Child from '../assets/image/B1Child.jpeg';
 import AuthorImage from '../assets/image/author1.jpeg';
 import Spinner from './Spinner';
 import SearchBar from '../Components/SearchBar';
-
-import Card from "../Components/Cart"
 import BookDetail from './BookDetail';
-
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [Result, setResult] = useState([]);
 
-  // const [search, setSearch] = useState("");
-  const [bookData, setBookData] = useState([])
   useEffect(() => {
+    // Simulate loading process
     setTimeout(() => {
       setData({
         featuredAuthor: {
@@ -23,95 +20,83 @@ const Home = () => {
           image: AuthorImage,
         },
       });
-      setIsLoading(false);
+      setIsLoading(false); // Mark loading as complete
     }, 2000);
   }, []);
 
   const handleSearch = (bookData) => {
     console.log('Search query:', bookData);
-    // Implement search logic here
-    setBookData(bookData);
+    setResult(bookData); // Update search results
   };
 
-  const [Result, setResult] = useState([]);
-
-
   return (
-    <>
+    <div className="bg-gray-100 dark:bg-[rgb(51,51,51)] min-h-screen">
+      {isLoading ? (
+        <Spinner /> // Show spinner while loading
+      ) : (
+        <>
+          <SearchBar onSearch={handleSearch} setResult={setResult} />
 
-      <div className="bg-gray-100 dark:bg-[rgb(51,51,51)] min-h-screen">
-        {isLoading && <Spinner />}
-        {!isLoading && (
-          <>
-            <SearchBar onSearch={handleSearch} setResult={setResult} />
+          <header className="bg-white shadow dark:bg-inherit">
+            <div className="container mx-auto p-6">
+              <img
+                src={B1Child}
+                alt="Book Store"
+                className="w-full max-h-[720px] object-cover rounded-lg shadow-lg"
+              />
+            </div>
+          </header>
 
-            <header className="bg-white shadow dark:bg-inherit">
-              <div className="container mx-auto p-6">
-                <img
-                  src={B1Child}
-                  alt="Book Store"
-                  className="w-full max-h-[720px] object-cover rounded-lg shadow-lg"
-                />
+          <section className="container mx-auto my-8">
+            <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">Book Categories</h2>
+            <BookDetail bookData={Result} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
+                <h3 className="text-xl font-bold mb-2 dark:text-white">Romance</h3>
+                <p className="text-gray-600 dark:text-white">Explore our collection of romantic novels.</p>
               </div>
-            </header>
+            </div>
+          </section>
 
-            <section className="container mx-auto my-8">
-              <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">Book Categories</h2>
-              <BookDetail bookData={Result} />
+          <section className="bg-gray-200 py-8 dark:bg-[rgb(40,40,40)]">
+            <div className="container mx-auto">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">New Arrivals</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {/* Book Category Cards */}
                 <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
-                  <h3 className="text-xl font-bold mb-2 dark:text-white">Romance</h3>
-                  <p className="text-gray-600 dark:text-white">Explore our collection of romantic novels.</p>
+                  <h3 className="text-xl font-bold mb-2 dark:text-white">Book Title 1</h3>
+                  <p className="text-gray-600 dark:text-white">Coming Soon</p>
                 </div>
-                {/* Additional cards... */}
               </div>
-            </section>
+            </div>
+          </section>
 
-            <section className="bg-gray-200 py-8 dark:bg-[rgb(40,40,40)]">
-              <div className="container mx-auto">
-                <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">New Arrivals</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* New Arrival Books */}
-                  <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
-                    <h3 className="text-xl font-bold mb-2 dark:text-white">Book Title 1</h3>
-                    <p className="text-gray-600 dark:text-white">Coming Soon</p>
-                  </div>
-                  {/* Additional books... */}
-                </div>
+          <section className="container mx-auto my-8">
+            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Top Trending Books</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
+                <h3 className="text-xl font-bold mb-2 dark:text-white">Trending Book 1</h3>
+                <p className="text-gray-600 dark:text-white">Description of the trending book.</p>
               </div>
-            </section>
+            </div>
+          </section>
 
-            <section className="container mx-auto my-8">
-              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Top Trending Books</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {/* Trending Books */}
-                <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
-                  <h3 className="text-xl font-bold mb-2 dark:text-white">Trending Book 1</h3>
-                  <p className="text-gray-600 dark:text-white">Description of the trending book.</p>
-                </div>
-                {/* Additional trending books... */}
+          <section className="container mx-auto my-8">
+            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Featured Author</h2>
+            <div className="bg-white rounded-lg shadow-lg p-6 flex items-center dark:bg-[rgb(30,30,30)]">
+              <img
+                src={data.featuredAuthor.image}
+                alt={data.featuredAuthor.name}
+                className="w-32 h-32 object-cover rounded-full shadow-lg mr-6"
+              />
+              <div>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">{data.featuredAuthor.name}</h3>
+                <p className="text-gray-600 dark:text-white">{data.featuredAuthor.bio}</p>
               </div>
-            </section>
-
-            <section className="container mx-auto my-8">
-              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Featured Author</h2>
-              <div className="bg-white rounded-lg shadow-lg p-6 flex items-center dark:bg-[rgb(30,30,30)]">
-                <img
-                  src={data.featuredAuthor.image}
-                  alt={data.featuredAuthor.name}
-                  className="w-32 h-32 object-cover rounded-full shadow-lg mr-6"
-                />
-                <div>
-                  <h3 className="text-2xl font-bold mb-2 dark:text-white">{data.featuredAuthor.name}</h3>
-                  <p className="text-gray-600 dark:text-white">{data.featuredAuthor.bio}</p>
-                </div>
-              </div>
-            </section>
-          </>
-        )}
-      </div>
-    </>
+            </div>
+          </section>
+        </>
+      )}
+    </div>
   );
 };
 
