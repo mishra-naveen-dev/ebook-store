@@ -1,19 +1,18 @@
 // src/components/SearchBar.js
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Cart";
-import "./Styles/style.css"
-import BookDetail from '../Pages/BookDetail';
+import "./Styles/style.css";
+import BookDetail from "../pages/BookDetail";
 
 const SearchBar = ({ onSearch, setResult }) => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [bookData, setBookData] = useState([]);
   const handleSearch = (e) => {
     e.preventDefault();
     onSearch(query);
   };
   const [search, setSearch] = useState("");
-
 
   // Function to handle search input and fetch book data
   const searchBook = async (evt) => {
@@ -24,7 +23,6 @@ const SearchBar = ({ onSearch, setResult }) => {
         );
         setBookData(response.data.items || []);
         setResult(response.data.items || []);
-
       } catch (error) {
         console.error("Error fetching book data:", error);
       }
@@ -42,10 +40,7 @@ const SearchBar = ({ onSearch, setResult }) => {
           onChange={(e) => setSearch(e.target.value)}
           onKeyPress={searchBook}
         />
-        <button
-          className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
-
-        >
+        <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded">
           Search
         </button>
       </div>
