@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import B1Child from '../assets/image/B1Child.jpeg';
-import AuthorImage from '../assets/image/author1.jpeg';
-import Spinner from './Spinner';
-import SearchBar from '../Components/SearchBar';
-import BookDetail from './BookDetail';
+import React, { useState, useEffect } from "react";
+import B1Child from "../assets/image/B1Child.jpeg";
+import AuthorImage from "../assets/image/author1.jpeg";
+import Spinner from "./Spinner";
+import SearchBar from "../components/SearchBar";
+import BookDetail from "./BookDetail";
+import HomeCard from "../components/HomepageCard/HomeCard";
+import Categories from "../components/BookCategories/Categories"; // Import the Categories component
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,7 +27,7 @@ const Home = () => {
   }, []);
 
   const handleSearch = (bookData) => {
-    console.log('Search query:', bookData);
+    console.log("Search query:", bookData);
     setResult(bookData); // Update search results
   };
 
@@ -35,8 +37,6 @@ const Home = () => {
         <Spinner /> // Show spinner while loading
       ) : (
         <>
-          <SearchBar onSearch={handleSearch} setResult={setResult} />
-
           <header className="bg-white shadow dark:bg-inherit">
             <div className="container mx-auto p-6">
               <img
@@ -47,23 +47,33 @@ const Home = () => {
             </div>
           </header>
 
-          <section className="container mx-auto my-8">
-            <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">Book Categories</h2>
-            <BookDetail bookData={Result} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
-                <h3 className="text-xl font-bold mb-2 dark:text-white">Romance</h3>
-                <p className="text-gray-600 dark:text-white">Explore our collection of romantic novels.</p>
-              </div>
-            </div>
+          <section className=" mx-auto my-5">
+            <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">
+              Book Store
+            </h2>
+            <SearchBar onSearch={handleSearch} setResult={setResult} />
+
+            {/* <BookDetail bookData={Result} /> */}
+            {/* //cart page to navigate after search */}
+            <HomeCard />
+
+            {/* Add Categories section here */}
+            <Categories
+              title="Book Categories"
+              description="Explore books from various categories."
+            />
           </section>
 
           <section className="bg-gray-200 py-8 dark:bg-[rgb(40,40,40)]">
             <div className="container mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">New Arrivals</h2>
+              <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+                New Arrivals
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
-                  <h3 className="text-xl font-bold mb-2 dark:text-white">Book Title 1</h3>
+                  <h3 className="text-xl font-bold mb-2 dark:text-white">
+                    Book Title 1
+                  </h3>
                   <p className="text-gray-600 dark:text-white">Coming Soon</p>
                 </div>
               </div>
@@ -71,17 +81,25 @@ const Home = () => {
           </section>
 
           <section className="container mx-auto my-8">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Top Trending Books</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+              Top Trending Books
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 dark:bg-[rgb(30,30,30)]">
-                <h3 className="text-xl font-bold mb-2 dark:text-white">Trending Book 1</h3>
-                <p className="text-gray-600 dark:text-white">Description of the trending book.</p>
+                <h3 className="text-xl font-bold mb-2 dark:text-white">
+                  Trending Book 1
+                </h3>
+                <p className="text-gray-600 dark:text-white">
+                  Description of the trending book.
+                </p>
               </div>
             </div>
           </section>
 
           <section className="container mx-auto my-8">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">Featured Author</h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+              Featured Author
+            </h2>
             <div className="bg-white rounded-lg shadow-lg p-6 flex items-center dark:bg-[rgb(30,30,30)]">
               <img
                 src={data.featuredAuthor.image}
@@ -89,8 +107,12 @@ const Home = () => {
                 className="w-32 h-32 object-cover rounded-full shadow-lg mr-6"
               />
               <div>
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">{data.featuredAuthor.name}</h3>
-                <p className="text-gray-600 dark:text-white">{data.featuredAuthor.bio}</p>
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">
+                  {data.featuredAuthor.name}
+                </h3>
+                <p className="text-gray-600 dark:text-white">
+                  {data.featuredAuthor.bio}
+                </p>
               </div>
             </div>
           </section>

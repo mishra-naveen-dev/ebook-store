@@ -1,0 +1,205 @@
+/* product view */
+.slick-slide {
+  outline: none !important;
+}
+
+.slider-image {
+  object-fit: cover;
+}
+
+.productdashboardBoxWrapper .sliderWrapper {
+  cursor: pointer !important;
+}
+
+.main-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.1); /* Zoom in effect */
+}
+.slider-small .slick-slide {
+  padding-right: 10px;
+  margin-top: 5px;
+}
+.slider-small .slick-slide .item {
+  border-radius: 7px !important;
+  overflow: hidden;
+}
+
+.slider-small *,
+.slider-big * {
+  transition: all 0.2s !important;
+}
+.slider-small .item {
+  overflow: hidden;
+  border-radius: 7px;
+  border: 1.5px dashed #ccc !important;
+}
+.slider-big .item {
+  overflow: hidden;
+  border-radius: 7px;
+  border: 2px dashed #ccc !important;
+}
+
+body.light p {
+  font-weight: 400 !important;
+}
+.productDetailsSection .productInfo .icon {
+  width: 28%;
+  flex: 0 0 28%;
+}
+.productDetailsSection .productInfo .name {
+  width: 72%;
+  flex: 0 0 72%;
+  font-weight: 600;
+
+  font-size: 15px;
+}
+body.dark .productDetailsSection .productInfo .name {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productDetailsSection .productInfo .row {
+  margin-bottom: 10px !important;
+}
+.productDetailsSection .productInfo .icon svg {
+  font-size: 22px;
+}
+
+.productDetailsSection .productInfo .row .col-sm-9 {
+  display: flex;
+  align-items: center;
+}
+.productDetailsSection .productInfo .row .col-sm-9 span {
+  opacity: 0.8;
+  font-size: 15px;
+  padding-left: 20px;
+}
+.tags {
+  margin-bottom: 0px !important;
+}
+.tags li span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+  font-size: 13px !important;
+}
+body.dark .tags li span {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background: #1b2b4d !important;
+  padding: 4px 10px !important;
+}
+.tags li span:first-child {
+  padding-left: 0px !important ;
+}
+.ratingSection {
+  width: 500px;
+}
+.ratingSection .ratingrow {
+  width: 100%;
+  margin-bottom: 15px !important;
+}
+.ratingSection .ratingrow .col1 {
+  width: 15%;
+  flex: 0 0 15%;
+  display: flex;
+}
+.ratingSection .ratingrow .col2 {
+  width: 50%;
+  flex: 0 0 50%;
+}
+.ratingSection .ratingrow .col3 {
+  width: 25%;
+  flex: 0 0 25%;
+  display: flex;
+  padding-left: 22px;
+}
+.ratingSection .ratingrow .progress {
+  height: 6px !important;
+  border-radius: 3px !important;
+}
+body.dark .ratingSection .ratingrow .progress {
+  background-color: #000 !important;
+}
+.ratingSection .ratingrow .progress .progress-bar {
+  background: #edb213 !important;
+}
+.reviewsSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.reviewsSection .reviewRow {
+  width: 100%;
+  height: auto;
+  padding: 35px;
+  border-radius: 10px;
+  margin: 15px 0px;
+  background: #f4f4f4;
+  border: 1px solid #1b2b4d !important;
+}
+body.dark .reviewsSection .reviewRow {
+  background: #071739 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.userInfo h6 {
+  margin-bottom: 0px !important;
+}
+.starRating {
+  color: #edb213 !important;
+}
+.reviewsSection .reviewRow.reply {
+  width: 90%;
+  margin-left: auto;
+  margin-top: 10px;
+  border: 1px solid #1b2b4d !important;
+}
+.reviewsSection .reviewRow p {
+  padding-left: 20px !important;
+}
+.reviewsSection .reviewRow .btn-big {
+  font-size: 15px !important;
+}
+.reviewsSection .reviewRow .btn-big svg {
+  font-size: 18px !important;
+}
+
+.reviewForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  border-radius: 20px !important;
+}
+
+.reviewForm textarea {
+  width: 100%;
+  height: 200px;
+  background: #f4f4f4 !important;
+  color: rgba(0, 0, 0, 0.7) !important;
+  border-radius: 5px !important;
+  outline: navajowhite !important;
+  padding: 15px;
+  border: 1px solid #1b2b4d !important;
+}
+body.dark .reviewForm textarea {
+  background: #1b2b4d !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+body.dark .reviewForm {
+  background: #071739 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.reviewForm textarea::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark .reviewForm textarea::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
