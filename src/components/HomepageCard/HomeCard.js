@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HomeCard.css";
 
 const HomeCard = () => {
+  const navigate = useNavigate();
   const cardGroupRef = useRef(null);
   const [books, setBooks] = useState([]);
   const [query, setQuery] = useState("javascript"); // Initial query
@@ -67,10 +68,7 @@ const HomeCard = () => {
         {books.length > 0 ? (
           books.map((book, index) => (
             <Link
-              to={{
-                pathname: "/book",
-                state: { book: book },
-              }}
+              to={`/book/${book.id}`}
               key={book.id || index}
               className="card-link"
             >
@@ -102,7 +100,12 @@ const HomeCard = () => {
             </Link>
           ))
         ) : (
-          <p>No books available</p>
+          <div>
+            <p>No books available</p>
+            <button onClick={() => navigate("/homeCard/book")}>
+              View More
+            </button>
+          </div>
         )}
       </div>
     </div>

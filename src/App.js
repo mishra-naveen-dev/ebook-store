@@ -19,7 +19,6 @@ import { Toast } from "./Toast/Toast.js";
 import GoToTop from "./components/GoToTop.jsx";
 import License from "./pages/Licensing.jsx";
 
-//
 import HomeCard from "./components/HomepageCard/HomeCard.js";
 import Categories from "./components/BookCategories/Categories.js";
 import Book from "./components/BookDetails/Book.js";
@@ -55,11 +54,9 @@ function App() {
           <Route path="/policy" element={<PrivacyPolicy />} />
 
           <Route path="/homeCard" element={<HomeCard />} />
-          <Route path="/book" element={<Book />} />
+          <Route path="/book/:bookId" element={<Book />} />
 
-    
           <Route path="/categories" element={<Categories />} />
-          {/* Add this line */}
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/licensing" element={<License />} />
