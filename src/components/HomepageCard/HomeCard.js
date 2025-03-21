@@ -1,94 +1,67 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./HomeCard.css";
 
-const HomeCard = () => {
+const HomeCard = ({ query = "javascript" }) => {
   const cardGroupRef = useRef(null);
   const [books, setBooks] = useState([]);
-  const [query, setQuery] = useState("javascript"); // Initial query
-  const maxResults = 10; // Example max results, you can change this dynamically
+  const maxResults = 10;
 
-  const fetchBooks = async () => {
-    const url = `${process.env.REACT_APP_BOOKS_API_URL}?q=${query}&maxResults=${maxResults}`;
+  // Fetch books using API URL from environment variables
+  const fetchBooks = useCallback(async () => {
+    const apiUrl = `${process.env.REACT_APP_BOOKS_API_URL}?q=${query}&maxResults=${maxResults}`;
+
+    if (!process.env.REACT_APP_BOOKS_API_URL) {
+      console.error("API URL is not set in environment variables.");
+      return;
+    }
 
     try {
-      const response = await fetch(url);
+      const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log("API response:", data); // Debugging log
+      console.log("API response:", data);
 
-      if (data.items) {
-        setBooks(data.items);
-      } else {
-        setBooks([]); // Set an empty array if no items are returned
-      }
+      setBooks(data.items || []);
     } catch (error) {
-      console.error("Error fetching books from URL:", url, error);
-      setBooks([]); // Set an empty array in case of error
+      console.error("Error fetching books:", error);
+      setBooks([]);
     }
-  };
+  }, [query]);
 
+  // Fetch books when the query changes
   useEffect(() => {
     fetchBooks();
-  }, [query, maxResults]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (cardGroupRef.current) {
-        cardGroupRef.current.scrollBy({
-          top: 0,
-          left: 200, // Adjust the value as needed
-          behavior: "smooth",
-        });
-      }
-    }, 8000); // Adjust the interval as needed
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Function to change the query dynamically
-  const changeQuery = () => {
-    const queries = ["javascript", "react", "nodejs", "css", "html", "romance"];
-    const randomQuery = queries[Math.floor(Math.random() * queries.length)];
-    setQuery(randomQuery);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(changeQuery, 5000); // Change query every 5 seconds
-    return () => clearInterval(interval);
-  }, []);
+  }, [fetchBooks]);
 
   return (
-    <div>
-      <div
-        className="homecardContainer mx-auto my-5"
-        ref={cardGroupRef}
-        style={{ overflowX: "auto", whiteSpace: "nowrap" }}
-      >
-        {books.length > 0 ? (
-          books.map((book, index) => (
-            <Link
-              to={{
-                pathname: "/book",
-                state: { book: book },
-              }}
-              key={book.id || index}
-              className="card-link"
-            >
+    <div
+      className="homecardContainer mx-auto my-5"
+      ref={cardGroupRef}
+      style={{ overflowX: "auto", whiteSpace: "nowrap" }}
+    >
+      {books.length > 0 ? (
+        books.map((book, index) => {
+          const bookInfo = book.volumeInfo || {};
+          const bookId = book.id || index;
+
+          return (
+            <Link to={`/homeCard/book/${bookId}`} key={bookId} className="card-link">
               <div
                 className="card card-slider"
-                style={{ display: "inline-block", marginRight: "20px" }} // Add margin to create space between cards
+                style={{ display: "inline-block", marginRight: "20px" }}
               >
                 <img
-                  src={book.volumeInfo?.imageLinks?.thumbnail || book.cover_i}
+                  src={bookInfo.imageLinks?.thumbnail || "/placeholder.jpg"}
                   className="card-img-top"
-                  alt={book.volumeInfo?.title || book.title}
+                  alt={bookInfo.title || "No Title"}
+                  style={{ height: "200px", objectFit: "cover" }}
                 />
                 <div className="card-body">
-                  <h5 className="title">
-                    {book.volumeInfo?.title || book.title}
-                  </h5>
+                  <h5 className="title">{bookInfo.title || "Untitled"}</h5>
                   <p className="card-text">
-                    {book.volumeInfo?.description || book.first_sentence}
+                    {bookInfo.description
+                      ? bookInfo.description.substring(0, 100) + "..."
+                      : "No description available"}
                   </p>
                   <p className="card-text">
                     <small className="text-body-secondary">
@@ -100,11 +73,11 @@ const HomeCard = () => {
                 </div>
               </div>
             </Link>
-          ))
-        ) : (
-          <p>No books available</p>
-        )}
-      </div>
+          );
+        })
+      ) : (
+        <p className="text-center">No books available</p>
+      )}
     </div>
   );
 };

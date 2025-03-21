@@ -18,11 +18,10 @@ import Contributors from "./pages/Contributors.jsx";
 import { Toast } from "./Toast/Toast.js";
 import GoToTop from "./components/GoToTop.jsx";
 import License from "./pages/Licensing.jsx";
-
-//
 import HomeCard from "./components/HomepageCard/HomeCard.js";
 import Categories from "./components/BookCategories/Categories.js";
 import Book from "./components/BookDetails/Book.js";
+import CartPage from "./pages/CartPage.jsx"; 
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -44,22 +43,19 @@ function App() {
       <div className="App" style={appStyle}>
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Routes>
-          <Route path="/" exact element={<HomePage darkMode={darkMode} />} />
+          <Route path="/" element={<HomePage darkMode={darkMode} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-
+          <Route path="/cart" element={<CartPage darkMode={darkMode} />} />{" "}
+          {/* ✅ Cart Page Route */}
           <Route path="/orders" element={<OrderList />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/faqs" element={<FAQ />} />
           <Route path="/policy" element={<PrivacyPolicy />} />
-
           <Route path="/homeCard" element={<HomeCard />} />
-          <Route path="/book" element={<Book />} />
-
-    
+          <Route path="/homeCard/book/:bookId" element={<Book />} />
           <Route path="/categories" element={<Categories />} />
-          {/* Add this line */}
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/licensing" element={<License />} />
@@ -68,7 +64,6 @@ function App() {
         </Routes>
         <Toast position="bottom-right" />
         <Footer />
-
         <GoToTop />
       </div>
     </Router>

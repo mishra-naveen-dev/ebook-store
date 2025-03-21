@@ -10,8 +10,7 @@ import Categories from "../components/BookCategories/Categories"; // Import the 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-  const [Result, setResult] = useState([]);
-
+  const [result, setResult] = useState([]);
   useEffect(() => {
     // Simulate loading process
     setTimeout(() => {
@@ -47,17 +46,18 @@ const Home = () => {
             </div>
           </header>
 
-          <section className=" mx-auto my-5">
+          <section className="mx-auto my-5">
             <h2 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">
               Book Store
             </h2>
-            <SearchBar onSearch={handleSearch} setResult={setResult} />
 
-            {/* <BookDetail bookData={Result} /> */}
-            {/* //cart page to navigate after search */}
-            <HomeCard />
+            {/* Search Bar */}
+            <SearchBar setResult={setResult} />
 
-            {/* Add Categories section here */}
+            {/* Display books after search */}
+            <HomeCard books={result} />
+
+            {/* Add Categories section */}
             <Categories
               title="Book Categories"
               description="Explore books from various categories."
