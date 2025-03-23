@@ -1,0 +1,79 @@
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .login-container {
+      max-width: 90%;
+      padding: 1rem 1rem;
+    }
+  
+    .login-container .form-title {
+      font-size: 1.25rem;
+    }
+  
+    .social-login .social-button {
+      font-size: 0.875rem;
+      padding: 0.3rem 0;
+    }
+  
+    .login-form .input-wrapper {
+      height: 48px;
+    }
+  
+    .login-form .login-button {
+      height: 48px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and down) */
+  @media only screen and (max-width: 768px) {
+    .login-container {
+      max-width: 80%;
+      padding: 1.5rem 1.25rem;
+    }
+  
+    .login-container .form-title {
+      font-size: 1.31rem;
+    }
+  
+    .social-login .social-button {
+      font-size: 0.9375rem;
+      padding: 0.625rem 0;
+    }
+  
+    .login-form .input-wrapper {
+      height: 50px;
+    }
+  
+    .login-form .login-button {
+      height: 50px;
+      font-size: 1.0625rem;
+    }
+  }
+  
+  /* Large devices (laptops/desktops, 1024px and up) */
+  @media only screen and (min-width: 1024px) {
+    .login-container {
+      max-width: 410px;
+      padding: 1rem 1.3rem;
+    }
+  
+    .login-container .form-title {
+      font-size: 1.37rem;
+    }
+  
+    .social-login .social-button {
+      font-size: 1rem;
+      padding: 0.75rem 0;
+    }
+  
+    .login-form .input-wrapper {
+      height: 54px;
+    }
+  
+    .login-form .login-button {
+      height: 54px;
+      font-size: 1.125rem;
+    }
+  }
+
+  

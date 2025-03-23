@@ -1,0 +1,113 @@
+.categories-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.category-section {
+  margin-bottom: 40px;
+}
+
+.books-slider {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.slick-slider {
+  position: relative;
+  width: 100%;
+}
+
+.slick-list {
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.slick-track {
+  display: flex;
+}
+
+.slick-slide {
+  padding: 10px;
+}
+
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+}
+
+.cardC {
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.cardC:hover {
+  transform: scale(1.05);
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  z-index: 100;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slick-prev::before,
+.slick-next::before {
+  font-size: 20px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .cardC {
+    width: 200px;
+    height: 300px;
+  }
+
+  .card-img {
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.8rem;
+  }
+}
