@@ -85,27 +85,23 @@
   background: #bfb3f2;
 }
 .login-form .input-wrapper {
-  height: 54px;
   width: 100%;
-  border-radius: 1.5rem;
-  position: relative;
-  margin-bottom: 1rem;
-}
-.login-form .input-wrapper .input-field {
-  height: 100%;
-  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
   outline: none;
-  font-size: 1.06rem;
-  border-radius: 0.31rem;
-  background-color: transparent; /* Set background color to transparent */
   border: 1px solid #bfb3f237;
   padding: 0 1.25rem 0 3.12rem;
   transition: 0.2s ease;
 }
-.login-form .input-wrapper .input-field:focus {
+.login-form .input-wrapper::focus {
   border-color: #5f41e4;
 }
-.login-form .input-wrapper .input-field::placeholder {
+.login-form .input-wrapper::placeholder {
   color: #a395e083;
 }
 .login-form .input-wrapper i {

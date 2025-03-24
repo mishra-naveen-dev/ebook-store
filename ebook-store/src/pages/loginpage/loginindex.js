@@ -3,7 +3,7 @@ import Login from "./LoginPage/LoginPage.jsx";
 import SignUp from "./SignUPage/SignUpPage.jsx";
 import { InputField } from "./LoginPage/InputField.js";
 import SocialLogin from "./LoginPage/SocialLogin.js";
-import ForgotPassword from "./ForgotPassword.jsx";
+import ForgotPassword from "./LoginPage/ForgotPassword.jsx";
 import Logout from "./LogoutButton.js";
 // Add this import
 

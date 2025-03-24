@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import "./Animations.css";
-import { Navbar, Footer } from "./components/index.js";
+import { Navbar, Footer, ProfilePage } from "./components/index.js";
 // login page
 import {
   Login,
@@ -53,6 +53,7 @@ function App() {
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Routes>
           <Route path="/" element={<HomePage darkMode={darkMode} />} />
+          <Route path="/profilepage" element={<ProfilePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

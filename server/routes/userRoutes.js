@@ -1,22 +1,9 @@
 const express = require("express");
-const {
-  signup,
-  login,
-  forgotPassword,
-  logout,
-} = require("../controllers/authController");
+
 const { getUserProfile } = require("../controllers/userController");
 const { verifyToken } = require("../middleware/auth");
 
 const router = express.Router();
-
-// Signup Route
-router.post("/register", signup);
-router.post("/login", login);
-
-router.post("/logout", logout);
-
-router.post("/forgot-password", forgotPassword);
 
 // Profile route (requires authentication)
 

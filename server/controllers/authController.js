@@ -1,8 +1,12 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { findUserByEmail, createUser,updateUserPassword } = require("../models/userModel");
+const {
+  findUserByEmail,
+  createUser,
+  updateUserPassword,
+} = require("../models/userModel");
 require("dotenv").config();
-
+const promisePool = require("../config/db");
 // Signup Function
 const signup = async (req, res) => {
   try {
@@ -48,71 +52,89 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await findUserByEmail(email);
 
-    if (!user)
-      return res.status(400).json({ error: "Invalid email or password" });
-
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch)
-      return res.status(400).json({ error: "Invalid email or password" });
-
-    const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+    // Find user in database
+    const [user] = await promisePool.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email]
     );
 
-    res
-      .status(200)
-      .json({
-        message: "Login successful",
-        token,
-        user: { id: user.id, name: user.name, email: user.email },
-      });
+    if (!user.length) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Compare password
+    const isMatch = await bcrypt.compare(password, user[0].password);
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+      { id: user[0].id, email: user[0].email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" } // Token expires in 1 hour
+    );
+
+    res.json({
+      message: "Login successful",
+      token: token,
+      user: {
+        id: user[0].id,
+        name: user[0].name,
+        email: user[0].email,
+        phone: user[0].phone,
+        address: user[0].address,
+      },
+    });
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
 // logout function
 const logout = async (req, res) => {
-    try {
-      // Invalidate token by setting an expired cookie (optional)
-      res.cookie("token", "", { expires: new Date(0), httpOnly: true });
-  
-      res.status(200).json({ message: "Logout successful" });
-    } catch (error) {
-      console.error("Logout Error:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  };
-  
+  try {
+    // Invalidate token by setting an expired cookie (optional)
+    res.cookie("token", "", { expires: new Date(0), httpOnly: true });
+
+    res.status(200).json({ message: "Logout successful" });
+  } catch (error) {
+    console.error("Logout Error:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
 
 //   handle forgotpassword function
-  const forgotPassword = async (req, res) => {
-    try {
-      const { email, answer, newPassword } = req.body;
-  
-      // Check if user exists
-      const user = await findUserByEmail(email);
-      if (!user) return res.status(404).json({ error: "User not found" });
-  
-      // Check if security question answer matches
-      if (user.answer !== answer) {
-        return res.status(400).json({ error: "Incorrect security answer" });
-      }
-  
-      // Hash the new password
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-      await updateUserPassword(user.id, hashedPassword);
-  
-      res.status(200).json({ message: "Password reset successful" });
-    } catch (error) {
-      console.error("Forgot Password Error:", error);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  };
-  
+const forgotPassword = async (req, res) => {
+  try {
+    const { email, answer, newPassword } = req.body;
 
-module.exports = { signup, login,logout,forgotPassword };
+    // Fetch user data
+    const user = await findUserByEmail(email);
+    console.log("Retrieved User:", user); // Debugging line
+
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    // Debugging: Check stored and entered security answer
+    console.log("Stored Answer:", user.answer);
+    console.log("User Entered Answer:", answer);
+
+    // Verify security answer
+    if (user.answer.trim().toLowerCase() !== answer.trim().toLowerCase()) {
+      return res.status(400).json({ error: "Incorrect security answer" });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    await updateUserPassword(user.user_id, hashedPassword);
+
+    res.status(200).json({ message: "Password reset successful" });
+  } catch (error) {
+    console.error("Forgot Password Error:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+module.exports = { signup, login, logout, forgotPassword };

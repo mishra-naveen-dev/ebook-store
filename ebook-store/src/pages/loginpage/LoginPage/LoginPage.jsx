@@ -41,7 +41,7 @@ const LoginPage = () => {
 
       // Success message and redirect
       toast.success("Login successful!");
-      setTimeout(() => navigate("/", { replace: true }), 1000);
+      setTimeout(() => navigate("/profilepage", { replace: true }), 1000);
     } catch (err) {
       setError(err.response?.data?.error || "Invalid email or password");
       toast.error(err.response?.data?.error || "Login failed");
