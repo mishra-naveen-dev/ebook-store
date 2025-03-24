@@ -6,7 +6,12 @@ import "./App.css";
 import "./Animations.css";
 import { Navbar, Footer } from "./components/index.js";
 // login page
-import { Login, SignUp, ForgotPassword } from "./pages/loginpage/loginindex.js";
+import {
+  Login,
+  SignUp,
+  ForgotPassword,
+  Logout,
+} from "./pages/loginpage/loginindex.js";
 
 import HomePage from "./pages/Home.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -14,7 +19,9 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import TermsAndConditions from "./pages/TermsConditions.jsx";
 import FAQ from "./pages/Faqs.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
-import { OrderList } from "./pages/Orders.jsx";
+
+import OrderList from "./pages/Orders.jsx"; // Import Order List
+import OrderTracking from "./pages/OrderTracking";
 import Contributors from "./pages/Contributors.jsx";
 import { Toast } from "./Toast/Toast.js";
 import GoToTop from "./components/GoToTop.jsx";
@@ -49,8 +56,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/cart" element={<CartPage darkMode={darkMode} />} />
-          <Route path="/orders" element={<OrderList />} />
+          <Route path="/orders" element={<OrderList />} />{" "}
+          {/* My Orders Page */}
+          <Route path="/track-order" element={<OrderTracking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/faqs" element={<FAQ />} />

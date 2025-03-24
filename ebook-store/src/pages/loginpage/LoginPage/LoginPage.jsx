@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Container, Button, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Container } from "@mui/material";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
@@ -9,47 +9,42 @@ import "../Responsive.css";
 import "./loginpage.css";
 
 const LoginPage = () => {
-  // State to hold email, password & loading/error
+  // State variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Simulating loading state
-    const timer = setTimeout(() => setIsLoading(false), 2500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Function to handle form submission
+  // Function to handle login
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
 
     try {
+      // Send login request to backend
       const response = await axios.post(
-        "http://localhost:8080/customer/login",
+        "http://localhost:3005/api/auth/login",
         {
           email,
           password,
         }
       );
 
-      // Save token in local storage
-      const { token } = response.data;
+      // Extract token from response
+      const { token, user } = response.data;
+
+      // Store token and user data in localStorage
       localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
 
-      toast.success("Login successful");
-      setEmail("");
-      setPassword("");
-
-      // Redirect after successful login
-      navigate("/", { replace: true });
+      // Success message and redirect
+      toast.success("Login successful!");
+      setTimeout(() => navigate("/", { replace: true }), 1000);
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
-      toast.error(err.response?.data?.message || "Invalid credentials");
+      setError(err.response?.data?.error || "Invalid email or password");
+      toast.error(err.response?.data?.error || "Login failed");
     } finally {
       setIsLoading(false);
     }
@@ -65,6 +60,7 @@ const LoginPage = () => {
       <div className="login-container">
         <h2 className="form-title">Log in with</h2>
 
+        {/* Social Media Login (Google/Apple) */}
         <SocialLogin />
 
         <p className="separator">
