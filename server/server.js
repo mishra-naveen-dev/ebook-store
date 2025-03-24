@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const pool = require("./config/db"); // Database connection
 const authRoutes = require("./routes/authRoutes");
-const protectedRoutes = require("./routes/protectedRoutes");
+// const protectedRoutes = require("./routes/protectedRoutes");
 
 dotenv.config();
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors());
 
 // Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/protected", protectedRoutes);
+// app.use("/api/protected", protectedRoutes);
 
 // Check Database Connection
 pool.getConnection((err, connection) => {
