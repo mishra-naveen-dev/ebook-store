@@ -7,14 +7,15 @@ dotenv.config();
 
 
 export const createUser = async (req, res) => {
+    const { name, email, address, phone_no, password } = req.body;
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
     const values = [
-        req.body.name,
-        req.body.email,
-        req.body.address,
-        req.body.phone_no,
+        name,
+        email,
+        address,
+        phone_no,
         hashedPassword
     ];
 
@@ -22,8 +23,11 @@ export const createUser = async (req, res) => {
 
     db.query(sql, [values], (err) => {
         if (err) {
+            if (err.errno == 1062) {
+                return res.status(403).json({ message: "Email Alrady Exiest" });
+            }
             console.error(err);
-            return res.status(500).json({ message: "Database error" });
+            return res.status(500).json({ message: "Database error", err });
         }
         return res.json({ message: "Signup Successful" });
     });
