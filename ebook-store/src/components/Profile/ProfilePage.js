@@ -1,58 +1,63 @@
 import React, { useEffect, useState } from "react";
-
-import AvatarImage from "../../assets/ss2.webp"; // Static avatar image
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./ProfilePage.css";
 
 const ProfilePage = () => {
-  // Static user details
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    orders: 0, // Dynamic order count
-  });
+  const navigate = useNavigate(); // Initialize navigate
+
+  // User state
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Retrieve user data from localStorage
-    const userData = JSON.parse(localStorage.getItem('user'));
-    if (userData) {
+    // Check if user is logged in
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (!userData) {
+      // If user is not logged in, redirect to login page
+      navigate("/login");
+    } else {
       setUser(userData);
     }
-  }, []);
+  }, [navigate]);
 
+  // Logout function
   const handleLogout = () => {
-    alert("You have been logged out!");
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/"); // Redirect to home page
+    window.location.reload(); // Reload the page
   };
 
   return (
     <div className="profile-container">
       <div className="profile-card">
-        {/* Avatar Image */}
-        <img src={AvatarImage} alt="User Avatar" className="profile-avatar" />
-
         <h2>My Profile</h2>
 
-        <p className="profile-info">
-          <span>Name:</span> {user.name}
-        </p>
-        <p className="profile-info">
-          <span>Email:</span> {user.email}
-        </p>
-        <p className="profile-info">
-          <span>Phone:</span> {user.phone}
-        </p>
-        <p className="profile-info">
-          <span>Address:</span> {user.address}
-        </p>
-        <p className="profile-info">
-          <span>Orders Placed:</span> {user.orders}
-        </p>
+        {user ? (
+          <>
+            <p className="profile-info">
+              <span>Name:</span> {user.name}
+            </p>
+            <p className="profile-info">
+              <span>Email:</span> {user.email}
+            </p>
+            <p className="profile-info">
+              <span>Phone:</span> {user.phone}
+            </p>
+            <p className="profile-info">
+              <span>Address:</span> {user.address}
+            </p>
+            <p className="profile-info">
+              <span>Orders Placed:</span> {user.orders}
+            </p>
 
-        {/* Logout Button */}
-        <button className="logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
+            {/* Logout Button */}
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <p>Redirecting to login...</p>
+        )}
       </div>
     </div>
   );

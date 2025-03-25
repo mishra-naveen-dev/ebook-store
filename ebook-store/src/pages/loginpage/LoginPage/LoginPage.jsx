@@ -32,17 +32,21 @@ const LoginPage = () => {
         }
       );
 
-      // Extract token from response
+      // Extract token and user data from response
       const { token, user } = response.data;
-
 
       // Store token and user data in localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
 
-      // Success message and redirect
+      // Success message
       toast.success("Login successful!");
-      setTimeout(() => navigate("/profilepage", { replace: true }), 1000);
+
+      // Navigate to profile page and refresh window
+      setTimeout(() => {
+        navigate("/profilepage", { replace: true });
+        window.location.reload(); // Reload the entire website
+      }, 1000);
     } catch (err) {
       setError(err.response?.data?.error || "Invalid email or password");
       toast.error(err.response?.data?.error || "Login failed");

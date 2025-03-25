@@ -8,17 +8,15 @@ import {
   useTheme,
   styled,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Link, useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
 import StoreIcon from "@mui/icons-material/Store";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import HomeIcon from "@mui/icons-material/Home";
 import LoginIcon from "@mui/icons-material/Person";
 import SignUpIcon from "@mui/icons-material/PersonAdd";
-import { Link } from "react-router-dom";
 import sunIcon from "../../assets/sun.png";
 import moonIcon from "../../assets/moon.png";
 import logo from "../../assets/image/Logo.jpg";
-import ProfileDropdown from "../Profile/ProfileDropdown";
 
 const StyledAppBar = styled(AppBar)({
   backgroundColor: "#002147",
@@ -49,6 +47,7 @@ const StyledButton = styled(Button)({
 
 function Navbar({ darkMode, toggleDarkMode }) {
   const theme = useTheme();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [user, setUser] = useState(null);
 
@@ -57,10 +56,11 @@ function Navbar({ darkMode, toggleDarkMode }) {
     setUser(storedUser);
   }, []);
 
-  // Handle logout to clear user data and update UI
   const handleLogout = () => {
-    localStorage.removeItem("user"); // Remove user from localStorage
-    setUser(null); // Update state to trigger re-render
+    localStorage.removeItem("user");
+    localStorage.removeItem("token"); // Also remove token
+    setUser(null);
+    navigate("/");
   };
 
   return (
@@ -111,9 +111,24 @@ function Navbar({ darkMode, toggleDarkMode }) {
               Orders
             </StyledButton>
 
-            {/* If user is logged in, show ProfileDropdown, otherwise show Login/Signup */}
+            {/* If user is logged in, show clickable username and logout button */}
             {user ? (
-              <ProfileDropdown user={user} onLogout={handleLogout} />
+              <>
+                <StyledButton
+                  to="/profilepage"
+                  style={{
+                    color: "white",
+                    fontWeight: "bold",
+                    textDecoration: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  {user.name}
+                </StyledButton>
+                <StyledButton color="inherit" onClick={handleLogout}>
+                  Logout
+                </StyledButton>
+              </>
             ) : (
               <>
                 <StyledButton
