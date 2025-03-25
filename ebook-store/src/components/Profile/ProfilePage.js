@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import AvatarImage from "../../assets/ss2.webp"; // Static avatar image
 import "./ProfilePage.css";
 
 const ProfilePage = () => {
   // Static user details
-  const user = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "+91 9876543210",
-    address: "123, Green Street, Indore, India",
-    orders: 5, // Example static order count
-  };
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    orders: 0, // Dynamic order count
+  });
 
-  // Logout function (static, doesn't clear token or API call)
+  useEffect(() => {
+    // Retrieve user data from localStorage
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (userData) {
+      setUser(userData);
+    }
+  }, []);
+
   const handleLogout = () => {
     alert("You have been logged out!");
   };
