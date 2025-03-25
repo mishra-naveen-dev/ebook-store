@@ -1,124 +1,88 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import {
-  Container,
-  CircularProgress,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TextField,
-  Button,
-  Box,
-  Typography,
-  Paper,
-} from "@mui/material";
-import RefreshIcon from "@mui/icons-material/Refresh";
-import SearchIcon from "@mui/icons-material/Search";
-import "./order.css"; // Add styles
+import React from "react";
+import "./order.css"; // Import styles
 
-const OrderList = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [orders, setOrders] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(
-        "http://localhost:8080/customer/orders",
+const OrdersPage = () => {
+  // Static order data (Replace with API data when needed)
+  const orders = [
+    {
+      order_id: 1,
+      user_name: "Narayan Patel",
+      total_price: 1500.99,
+      status: "completed",
+      created_at: "2025-03-23",
+      items: [
         {
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-        }
-      );
-      setOrders(response.data);
-    } catch (error) {
-      console.error("Error fetching orders:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredOrders = orders.filter((order) =>
-    order.item.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+          order_item_id: 101,
+          book_name: "The Great Gatsby",
+          quantity: 2,
+          price: 499.99,
+        },
+        {
+          order_item_id: 102,
+          book_name: "Atomic Habits",
+          quantity: 1,
+          price: 499.99,
+        },
+      ],
+    },
+    {
+      order_id: 2,
+      user_name: "Rahul Sharma",
+      total_price: 799.99,
+      status: "pending",
+      created_at: "2025-03-22",
+      items: [
+        {
+          order_item_id: 103,
+          book_name: "The Alchemist",
+          quantity: 1,
+          price: 799.99,
+        },
+      ],
+    },
+  ];
 
   return (
-    <Container className="order-list-container">
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        mb={3}
-      >
-        <TextField
-          placeholder="Search Orders"
-          value={searchTerm}
-          onChange={handleSearch}
-          InputProps={{
-            startAdornment: <SearchIcon />,
-          }}
-          className="search-bar"
-        />
-        <Button
-          variant="contained"
-          onClick={fetchData}
-          startIcon={<RefreshIcon />}
-        >
-          Refresh
-        </Button>
-      </Box>
+    <div className="orders-container mt-2">
+      <h1>My Orders</h1>
 
-      {isLoading ? (
-        <CircularProgress />
-      ) : filteredOrders.length === 0 ? (
-        <Paper className="no-orders">
-          <Typography variant="h6">
-            You haven't ordered anything yet.
-          </Typography>
-          <Link to="/cartpage" className="order-now-link">
-            Order Now
-          </Link>
-        </Paper>
+      {orders.length === 0 ? (
+        <p className="no-orders">No orders found.</p>
       ) : (
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Order ID</TableCell>
-                <TableCell>Item</TableCell>
-                <TableCell>Quantity</TableCell>
-                <TableCell>Price</TableCell>
-                <TableCell>Status</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredOrders.map((order) => (
-                <TableRow key={order.id}>
-                  <TableCell>{order.id}</TableCell>
-                  <TableCell>{order.item}</TableCell>
-                  <TableCell>{order.quantity}</TableCell>
-                  <TableCell>₹{order.price}</TableCell>
-                  <TableCell>{order.status}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <div className="orders-list">
+          {orders.map((order) => (
+            <div key={order.order_id} className="order-card">
+              <h2>Order #{order.order_id}</h2>
+              <p>
+                <strong>Customer:</strong> {order.user_name}
+              </p>
+              <p>
+                <strong>Total Price:</strong> ₹{order.total_price.toFixed(2)}
+              </p>
+              <p className={`status ${order.status}`}>
+                {order.status.toUpperCase()}
+              </p>
+              <p>
+                <strong>Ordered On:</strong> {order.created_at}
+              </p>
+
+              <div className="order-items">
+                <h3>Items:</h3>
+                <ul>
+                  {order.items.map((item) => (
+                    <li key={item.order_item_id}>
+                      {item.book_name} (x{item.quantity}) - ₹
+                      {item.price.toFixed(2)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
-    </Container>
+    </div>
   );
 };
 
-export default OrderList;
+export default OrdersPage;

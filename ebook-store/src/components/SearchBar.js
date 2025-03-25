@@ -21,13 +21,14 @@ const SearchBar = ({ setResult }) => {
   return (
     <div className="search-bar-container text-center my-4">
       <form onSubmit={handleSearch} className="flex justify-center">
-        <input
-          type="text"
-          placeholder="Search for books..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="border p-2 rounded-l w-2/3 focus:outline-none"
-        />
+      <input
+  type="text"
+  placeholder="Search for books..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className="border p-2 rounded-l w-full md:w-2/3 focus:outline-none"
+  style={{ minWidth: "250px" }} // Ensure minimum width
+/>
         <button
           type="submit"
           className="bg-blue-500 text-white px-4 rounded-r hover:bg-blue-600"
