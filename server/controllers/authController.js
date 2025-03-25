@@ -53,45 +53,38 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Find user in database
-    const [user] = await promisePool.query(
-      "SELECT * FROM users WHERE email = ?",
+    // Fetch user from DB (Change `id` to `user_id`)
+    const [rows] = await promisePool.query(
+      "SELECT user_id, name, email, password FROM users WHERE email = ?",
       [email]
     );
 
-    if (!user.length) {
-      return res.status(404).json({ error: "User not found" });
+    if (rows.length === 0) {
+      return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    // Compare password
-    const isMatch = await bcrypt.compare(password, user[0].password);
+    const user = rows[0];
+
+    // Validate password
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ error: "Invalid credentials" });
+      return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    // Generate JWT token
+    // Generate JWT Token (Use `user_id` instead of `id`)
     const token = jwt.sign(
-      { id: user[0].id, email: user[0].email },
+      { user_id: user.user_id, email: user.email },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" } // Token expires in 1 hour
+      { expiresIn: "1h" }
     );
 
-    res.json({
-      message: "Login successful",
-      token: token,
-      user: {
-        id: user[0].id,
-        name: user[0].name,
-        email: user[0].email,
-        phone: user[0].phone,
-        address: user[0].address,
-      },
-    });
+    res.json({ token, user });
   } catch (error) {
     console.error("Login Error:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
 
 // logout function
 const logout = async (req, res) => {

@@ -4,7 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import "./Animations.css";
-import { Navbar, Footer, ProfilePage } from "./components/index.js";
+import {
+  Navbar,
+  Footer,
+  ProfilePage,
+  ProfileDropdown,
+} from "./components/index.js";
 // login page
 import {
   Login,

@@ -6,7 +6,7 @@ const {
   logout,
 } = require("../controllers/authController");
 const { getUserProfile } = require("../controllers/userController");
-const { verifyToken } = require("../middleware/auth");
+const { authMiddleware } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -20,5 +20,5 @@ router.post("/forgot-password", forgotPassword);
 
 // Profile route (requires authentication)
 
-router.get("/profile", verifyToken, getUserProfile);
+router.get("/profile", authMiddleware, getUserProfile);
 module.exports = router;
