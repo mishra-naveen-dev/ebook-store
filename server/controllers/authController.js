@@ -53,9 +53,9 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Fetch user from DB (Change `id` to `user_id`)
+    // Fetch user from DB
     const [rows] = await promisePool.query(
-      "SELECT user_id, name, email, password FROM users WHERE email = ?",
+      "SELECT user_id, name, email, country, address, phone, password FROM users WHERE email = ?",
       [email]
     );
 
@@ -71,7 +71,10 @@ const login = async (req, res) => {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    // Generate JWT Token (Use `user_id` instead of `id`)
+
+    delete user.password;
+
+    // Generate JWT Token
     const token = jwt.sign(
       { user_id: user.user_id, email: user.email },
       process.env.JWT_SECRET,
