@@ -3,8 +3,10 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const pool = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
-const userRoutes = require("./routes/userRoutes"); //
+const userRoutes = require("./routes/userRoutes");
 const bookRoutes = require("./routes/bookRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const orderItemRoutes = require("./routes/orderItemRoutes");
 
 dotenv.config();
 const app = express();
@@ -14,9 +16,10 @@ app.use(cors());
 
 // Routes
 app.use("/api/auth", authRoutes);
-// app.use("/api/protected", protectedRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/books", bookRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api", orderItemRoutes);
 
 // Check Database Connection
 pool.getConnection((err, connection) => {

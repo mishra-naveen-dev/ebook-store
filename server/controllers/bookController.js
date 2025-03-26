@@ -1,5 +1,6 @@
 const axios = require("axios");
 const { addBook } = require("../models/Book");
+const promisePool = require("../config/db");
 
 const fetchBooksFromAPI = async (req, res) => {
     try {
@@ -27,4 +28,23 @@ const fetchBooksFromAPI = async (req, res) => {
     }
 };
 
-module.exports = { fetchBooksFromAPI };
+
+
+// Function to add a new book
+const addNewBook = async (req, res) => {
+    try {
+        const { book_id, title, author, publisher, published_date, description, price, image_url, category, rating } = req.body;
+
+        const sql = `INSERT INTO books (book_id, title, author, publisher, published_date, description, price, image_url, category, rating) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        await promisePool.query(sql, [book_id, title, author, publisher, published_date, description, price, image_url, category, rating]);
+
+        res.status(201).json({ message: "Book added successfully" });
+    } catch (error) {
+        console.error("Error adding book:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+
+module.exports = { fetchBooksFromAPI, addNewBook };

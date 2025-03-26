@@ -35,7 +35,6 @@ const LoginPage = () => {
       // Extract token from response
       const { token, user } = response.data;
 
-
       // Store token and user data in localStorage
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
